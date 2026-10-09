@@ -1,3 +1,7 @@
+# v1.2 profile expansion
+
+The World Languages edition allows separate personal isolated-sign profiles for the 83 source-listed languages. Only the ASL starter is pretrained. New selectors do not add linguistic recognition capability or a pretrained national-language model. See WORLD_LANGUAGES.md for IDs, resource scope and the 30-class/profile, 500-entry import limits. The original model architecture and limitations below remain applicable.
+
 # SignVoice AI prototype model card
 
 ## Delivered recognition scope

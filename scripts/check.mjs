@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {validateReferenceCatalog} from '../dist/lesson-engine.js';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const html=await readFile(path.join(root,'dist/index.html'),'utf8');
-const app=(await Promise.all(['app.js','learning-ui.js'].map(file=>readFile(path.join(root,'dist',file),'utf8')))).join('\n');
+const app=(await Promise.all(['app.js','learning-ui.js','world-ui.js','offline.js'].map(file=>readFile(path.join(root,'dist',file),'utf8')))).join('\n');
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 if(new Set(ids).size!==ids.length)throw Error('Duplicate HTML IDs');
 for(const [,id] of app.matchAll(/\$\('([^']+)'\)/g))if(!ids.includes(id))throw Error(`Missing element: ${id}`);
@@ -15,4 +15,6 @@ for(const file of ['dist/vendor/mediapipe/wasm/vision_wasm_internal.wasm','dist/
 const metadata=JSON.parse(await readFile(path.join(root,'dist/catalog/metadata.json'),'utf8'));
 for(const language of ['ASL','ISL']){const catalog=validateReferenceCatalog(JSON.parse(await readFile(path.join(root,'dist/catalog',language.toLowerCase()+'.json'),'utf8')));if(catalog.entries.length!==metadata[language].count)throw Error('Catalog count mismatch: '+language);}
 const chart=await readFile(path.join(root,'dist/media/asl-alphabet.png'));if(!chart.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])))throw Error('Invalid alphabet chart');
-console.log('JavaScript syntax, UI element references, reference catalogs, alphabet chart and packaged model/WASM assets verified.');
+const world=JSON.parse(await readFile(path.join(root,'dist/catalog/world.json'),'utf8'));const {validateWorldCatalog}=await import('../dist/world-engine.js');validateWorldCatalog(world);
+const manifest=JSON.parse(await readFile(path.join(root,'dist/manifest.webmanifest'),'utf8'));for(const icon of manifest.icons)await stat(path.join(root,'dist',icon.src));
+console.log('World language catalog, PWA manifest, JavaScript syntax, UI element references, reference catalogs, alphabet chart and packaged model/WASM assets verified.');

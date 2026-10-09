@@ -29,3 +29,11 @@
 9. Browse/filter both catalogs. Test an ISL source player and its separate-open fallback; ASL lessons should open on their source website. Disable network and confirm local recognition remains independent of reference playback.
 10. Practice an untrained reference and confirm it is marked training-needed. Train that language and sign with background examples, return to practice, and verify feedback/optional next-step behavior only follows accepted matches. Confirm changing the practice language changes the camera profile.
 11. Export a practice plan, import an additional valid reference catalog, reload and verify persistence. Importing references must not create a trained webcam model. Delete local data and confirm imported references and recordings are removed.
+
+## v1.2 global learning release
+34 automated tests passed: the original 23 plus 11 global-library/import/offline checks. World-catalog links and profile records were verified against their university catalog records, not through physical playback of every provider. JavaScript syntax, HTML element references, model/WASM assets and catalog counts passed their checks. Browser UI rendering, real webcam, speech, local clip playback and offline/PWA installation were not physically verified in this environment.
+
+## v1.3 requested-language and sentence-player release
+44 automated tests passed. The new checks cover every requested profile, ambiguous abbreviations, language-specific alphabet provenance, strict provider URL validation, Vimeo imports, local-video sentence matching, missing-word preservation, safe image MIME/size bounds, Chinese/Japanese segmentation, and verified-letter spelling without cross-language substitution. The syntax, HTML IDs, catalog provenance, model/WASM, offline assets and publishing checks also passed.
+
+Physical webcam, browser rendering, speech synthesis, provider playback, local media playback, automatic advance, and PWA installation remain unverified in this environment. This release adds a learning player and resource coverage, not universal recognition or grammatical sentence translation.

@@ -1,3 +1,4 @@
+import {isLanguage} from './languages.js';
 // All training examples are real recordings supplied by the user. No simulated signs.
 export const DIM = 132;
 export const NEUTRAL = '__neutral__';
@@ -107,10 +108,10 @@ export class RecognitionGate {
 
 export function validateDataset(data) {
   if(data?.schemaVersion!==1 || data.featureVersion!=='hands-v1-132' || !Array.isArray(data.entries)) throw Error('Unsupported dataset format or feature version.');
-  if(data.entries.length>60 || ['ISL','ASL'].some(lang=>data.entries.filter(e=>e.language===lang).length>30))throw Error('Dataset exceeds 30 entries per language.');
+  if(data.entries.length>500 || [...new Set(data.entries.map(e=>e.language))].some(lang=>data.entries.filter(e=>e.language===lang).length>30))throw Error('Dataset exceeds 500 entries or 30 entries per language.');
   const ids=new Set();
   for(const e of data.entries) {
-    if(!['ASL','ISL'].includes(e.language)||typeof e.id!=='string'||!e.id||typeof e.label!=='string'||!e.label.trim()||e.label.length>80||typeof e.speech!=='string'||e.speech.length>200||!['static','motion','neutral'].includes(e.kind)||!Array.isArray(e.samples)||e.samples.length>12)throw Error('Invalid sign entry.');
+    if(!isLanguage(e.language)||typeof e.id!=='string'||!e.id||typeof e.label!=='string'||!e.label.trim()||e.label.length>80||typeof e.speech!=='string'||e.speech.length>200||!['static','motion','neutral'].includes(e.kind)||!Array.isArray(e.samples)||e.samples.length>12)throw Error('Invalid sign entry.');
     const key=e.language+':'+e.id;if(ids.has(key))throw Error('Duplicate sign IDs.');ids.add(key);
     if(e.kind==='neutral' && e.id!==NEUTRAL || e.id===NEUTRAL && e.kind!=='neutral') throw Error('Invalid neutral class.');
     for(const s of e.samples) {

@@ -41,3 +41,9 @@ No WLASL, INCLUDE, CISLR or iSign video/pose dataset is distributed in this proj
 - Source and public-domain declaration: https://commons.wikimedia.org/wiki/File:Asl_alphabet_gallaudet_ann.png .
 - Original asset: https://upload.wikimedia.org/wikipedia/commons/4/4a/Asl_alphabet_gallaudet_ann.png .
 - The original sheet is displayed whole and through CSS letter viewports; J/Z motion arrows remain part of the source image. The short handshape instructions in `dist/alphabet.js` are original application text. The chart supports visual reference, not a trained alphabet classifier.
+
+## International resource directory
+Factual resource metadata and language identifiers were checked against Universität Hamburg’s Sign Language Dataset Compendium v1.5.0 on October 9, 2026. Each resource retains its source-record URL; external video media remain with their providers. Citation: Kopf, M., Schulder, M., & Hanke, T. (2022), The Sign Language Dataset Compendium: Creating an Overview of Digital Linguistic Resources. https://www.sign-lang.uni-hamburg.de/lr/compendium/ . Media rights are not transferred by this app’s MIT source-code license.
+
+## v1.3 learning links and embeds
+Language learning links are attributed in `dist/learning-resources.js`. Deaf Action's BSL alphabet is linked to its Vimeo player (537654929). Surdités Info Service's LSF dactylologie is linked to its YouTube player (2-n1icoDxLM). These external videos are not copied, modified, cached offline or included in the application license; provider restrictions and availability apply. Other alphabet resources open at their official/community sources. Personal lesson links, images and videos must be verified by their owner and used with the relevant permission and consent.

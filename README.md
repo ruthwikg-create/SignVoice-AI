@@ -1,4 +1,19 @@
-# SignVoice AI
+# SignVoice AI — World Languages v1.3
+
+## World Languages learning edition
+
+The requested ASL, Indian ISL, BSL, Auslan, NZSL, French LSF, Mexican LSM, Chinese CSL, Zimbabwean ZGS/ZSL, JSL, Libras, LSE, DGS, LIS, SASL, Norwegian NS/NTS, HKSL, Korean KSL, Taiwan TSL, Filipino FSL, Kenyan KSL, LGP and International Sign choices are available with full names. Duplicated Auslan appears once.
+
+Typed sentences become ordered vocabulary practice with playable-video counts, missing-word lookup, verified lesson-link editing, and local video/image playback. Select **Watch sequence** and use **Next sign** for provider videos; local videos can advance automatically when they end. Alphabet guides are linked or embedded where verified. The full dictionaries/alphabets of every listed language are not bundled.
+
+The app now includes 87 language profiles, 91 resource records and 73 country/territory associations. Browse by country or language, open provider demonstrations, bookmark resources, keep learning notes, and study permission-confirmed local clips with speed and loop controls. All listed profiles have separate user-trainable isolated-sign vocabularies.
+
+**Coverage remains partial.** International providers are linked at source; their videos are not copied into this repository. The original 15,438 ISL references, 2,085 ASL lesson links and ASL alphabet remain indexed. Other profiles use source guides, verified saved/imported references and permitted local videos or images for typed word practice. Only ASL “I love you” has pretrained recognition. This is a functional learning platform with limited personal recognition, not a complete translator for all sign languages.
+
+Run `npm start` and open http://localhost:3000. New users can begin in **World languages**. No npm installation step is required. Optional offline downloads, app icons, privacy/usage pages, compatible static-host headers and Netlify publishing configuration are included.
+
+See [Sentence & alphabet practice](docs/SENTENCE_PRACTICE.md), [World languages](docs/WORLD_LANGUAGES.md) and [Publishing](docs/PUBLISHING.md). The v1.1 documentation below describes the retained ASL/ISL core.
+
 
 A desktop-webcam web application with searchable ASL/ISL references, typed-text vocabulary practice, real hand tracking, live isolated-sign recognition, subtitles, an editable message composer, speech, and separate trainable ISL and ASL vocabularies.
 

@@ -1,0 +1,2713 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-09",
+  "source": "Sign Language Dataset Compendium v1.5.0 plus attributed community and university learning resources",
+  "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/",
+  "coverage": "87 language profiles with source links; 91 resource records. Includes community learning pages as well as video dictionaries; coverage is incomplete.",
+  "profiles": [
+    {
+      "name": "Adamorobe Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/ads.html",
+      "iso": "ads",
+      "resources": [
+        "adasllexicon"
+      ],
+      "corpora": [
+        "Adamorobe Sign Language Corpus"
+      ],
+      "countries": [
+        "GH"
+      ],
+      "region": "Africa",
+      "id": "ADS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Albanian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/sqk.html",
+      "iso": "sqk",
+      "resources": [
+        "albsldict"
+      ],
+      "corpora": [],
+      "countries": [
+        "AL"
+      ],
+      "region": "Europe",
+      "id": "SQK",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Algerian Jewish Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/ajs.html",
+      "iso": "ajs",
+      "resources": [
+        "ajsldict"
+      ],
+      "corpora": [],
+      "countries": [
+        "DZ"
+      ],
+      "region": "Africa",
+      "id": "AJS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "American Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/ase.html",
+      "iso": "ase",
+      "resources": [
+        "aslsignbank",
+        "asllex",
+        "dictio",
+        "hallatlandictionary",
+        "signstudy",
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "US",
+        "CA"
+      ],
+      "region": "Americas",
+      "id": "ASL",
+      "localCatalog": "asl.json",
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "ASL"
+      ]
+    },
+    {
+      "name": "Arabic Sign Languages",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/arabicsls.html",
+      "iso": "",
+      "resources": [
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [],
+      "region": "International",
+      "id": "REG-ARABICSLS",
+      "localCatalog": null,
+      "note": "This is a resource grouping, not a single national sign language. Select and verify the specific community's language at the provider.",
+      "aliases": []
+    },
+    {
+      "name": "Argentine Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/aed.html",
+      "iso": "aed",
+      "resources": [
+        "senario",
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "AR"
+      ],
+      "region": "Americas",
+      "id": "AED",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Auslan",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/asf.html",
+      "iso": "asf",
+      "resources": [
+        "auslansignbank",
+        "spreadthesign"
+      ],
+      "corpora": [
+        "Auslan Corpus"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "region": "Oceania",
+      "id": "ASF",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "Auslan"
+      ]
+    },
+    {
+      "name": "Australian Irish Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/australianirishsignlanguage.html",
+      "iso": "",
+      "resources": [],
+      "corpora": [
+        "Australian Irish Sign Language"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "region": "Oceania",
+      "id": "REG-AUSTRALIANIRISHSIGNLANGUAGE",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Austrian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/asq.html",
+      "iso": "asq",
+      "resources": [
+        "dictio",
+        "ledasila",
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "AT"
+      ],
+      "region": "Europe",
+      "id": "ASQ",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Belarusian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/belarusiansignlanguage.html",
+      "iso": "",
+      "resources": [
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "BY"
+      ],
+      "region": "Europe",
+      "id": "REG-BELARUSIANSIGNLANGUAGE",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Black American Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/blackamericansignlanguage.html",
+      "iso": "",
+      "resources": [],
+      "corpora": [
+        "Black ASL Project Corpus"
+      ],
+      "countries": [
+        "US"
+      ],
+      "region": "Americas",
+      "id": "REG-BLACKAMERICANSIGNLANGUAGE",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "British Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/bfi.html",
+      "iso": "bfi",
+      "resources": [
+        "bslglossary",
+        "bslsignbank",
+        "dictasignlex",
+        "spreadthesign"
+      ],
+      "corpora": [
+        "British Sign Language Corpus",
+        "Dicta-Sign Corpus",
+        "ECHO Corpus"
+      ],
+      "countries": [
+        "GB"
+      ],
+      "region": "Europe",
+      "id": "BFI",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "BSL"
+      ]
+    },
+    {
+      "name": "Bulgarian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/bqn.html",
+      "iso": "bqn",
+      "resources": [
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "BG"
+      ],
+      "region": "Europe",
+      "id": "BQN",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Cambodian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/csx.html",
+      "iso": "csx",
+      "resources": [
+        "krousarthmeydictionary"
+      ],
+      "corpora": [],
+      "countries": [
+        "KH"
+      ],
+      "region": "Asia",
+      "id": "CSX",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Cameroon Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/cameroonsignlanguage.html",
+      "iso": "",
+      "resources": [],
+      "corpora": [
+        "Documentation of Extreme North Cameroon Sign Language and Cameroon Sign Language"
+      ],
+      "countries": [
+        "CM"
+      ],
+      "region": "Africa",
+      "id": "REG-CAMEROONSIGNLANGUAGE",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Catalan Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/csc.html",
+      "iso": "csc",
+      "resources": [
+        "sematos",
+        "wikisignlsc"
+      ],
+      "corpora": [
+        "Catalan Sign Language Corpus"
+      ],
+      "countries": [
+        "ES"
+      ],
+      "region": "Europe",
+      "id": "CSC",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Chilean Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/csg.html",
+      "iso": "csg",
+      "resources": [
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "CL"
+      ],
+      "region": "Americas",
+      "id": "CSG",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Chinese Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/csl.html",
+      "iso": "csl",
+      "resources": [
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "CN"
+      ],
+      "region": "Asia",
+      "id": "CSL",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "CSL"
+      ]
+    },
+    {
+      "name": "Colombian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/csn.html",
+      "iso": "csn",
+      "resources": [
+        "dictionaryofnewmedicalsignlanguageterms",
+        "filosenando",
+        "insor",
+        "lesico",
+        "treeoflife"
+      ],
+      "corpora": [],
+      "countries": [
+        "CO"
+      ],
+      "region": "Americas",
+      "id": "CSN",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Costa Rican Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/csr.html",
+      "iso": "csr",
+      "resources": [
+        "lescodict"
+      ],
+      "corpora": [
+        "LESCO Corpus"
+      ],
+      "countries": [
+        "CR"
+      ],
+      "region": "Americas",
+      "id": "CSR",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Croatian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/csq.html",
+      "iso": "csq",
+      "resources": [
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "HR"
+      ],
+      "region": "Europe",
+      "id": "CSQ",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Cuba Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/csf.html",
+      "iso": "csf",
+      "resources": [
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "CU"
+      ],
+      "region": "Americas",
+      "id": "CSF",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Cypriot Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/cypriotsignlanguage.html",
+      "iso": "",
+      "resources": [
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "CY"
+      ],
+      "region": "Europe",
+      "id": "REG-CYPRIOTSIGNLANGUAGE",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Czech Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/cse.html",
+      "iso": "cse",
+      "resources": [
+        "czechsldomainspecificlexicon",
+        "dictio",
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "CZ"
+      ],
+      "region": "Europe",
+      "id": "CSE",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Danish Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/dsl.html",
+      "iso": "dsl",
+      "resources": [
+        "dtsdictionary",
+        "spreadthesign"
+      ],
+      "corpora": [
+        "Danish Sign Language Corpus"
+      ],
+      "countries": [
+        "DK"
+      ],
+      "region": "Europe",
+      "id": "DSL",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Dogon Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/dogonsignlanguage.html",
+      "iso": "",
+      "resources": [],
+      "corpora": [
+        "Dogon Sign Language Corpus"
+      ],
+      "countries": [
+        "ML"
+      ],
+      "region": "Africa",
+      "id": "REG-DOGONSIGNLANGUAGE",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Estonian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/eso.html",
+      "iso": "eso",
+      "resources": [
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "EE"
+      ],
+      "region": "Europe",
+      "id": "ESO",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Extreme North Cameroon Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/extremenorthcameroonsignlanguage.html",
+      "iso": "",
+      "resources": [],
+      "corpora": [
+        "Documentation of Extreme North Cameroon Sign Language and Cameroon Sign Language"
+      ],
+      "countries": [
+        "CM"
+      ],
+      "region": "Africa",
+      "id": "REG-EXTREMENORTHCAMEROONSIGNLANGUAGE",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Faroese Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/faroesesignlanguage.html",
+      "iso": "",
+      "resources": [
+        "foroyarsignwiki"
+      ],
+      "corpora": [],
+      "countries": [
+        "FO"
+      ],
+      "region": "Europe",
+      "id": "REG-FAROESESIGNLANGUAGE",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Finland-Swedish Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/fss.html",
+      "iso": "fss",
+      "resources": [
+        "finnishsignbank",
+        "signwikifinland"
+      ],
+      "corpora": [
+        "Corpus of Finnish Sign Language"
+      ],
+      "countries": [
+        "FI"
+      ],
+      "region": "Europe",
+      "id": "FSS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Finnish Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/fse.html",
+      "iso": "fse",
+      "resources": [
+        "finnishsignbank",
+        "signwikisuomi",
+        "spreadthesign",
+        "suvi"
+      ],
+      "corpora": [
+        "Corpus of Finnish Sign Language"
+      ],
+      "countries": [
+        "FI"
+      ],
+      "region": "Europe",
+      "id": "FSE",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Flemish Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/vgt.html",
+      "iso": "vgt",
+      "resources": [
+        "globalsignbankvgt",
+        "vgtdictionary"
+      ],
+      "corpora": [
+        "Corpus Vlaamse Gebarentaal"
+      ],
+      "countries": [
+        "BE"
+      ],
+      "region": "Europe",
+      "id": "VGT",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "French Belgian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/sfb.html",
+      "iso": "sfb",
+      "resources": [
+        "globalsignbanklsfb",
+        "lexlsfb",
+        "lsfbenligne"
+      ],
+      "corpora": [
+        "Corpus LSFB"
+      ],
+      "countries": [
+        "BE"
+      ],
+      "region": "Europe",
+      "id": "SFB",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "French Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/fsl.html",
+      "iso": "fsl",
+      "resources": [
+        "dictasignlex",
+        "elix",
+        "ocelles",
+        "sematos",
+        "sgbfss",
+        "spreadthesign"
+      ],
+      "corpora": [
+        "CREAGEST",
+        "Dicta-Sign Corpus",
+        "Dicta-Sign-LSF-v2",
+        "MEDIAPI-SKEL"
+      ],
+      "countries": [
+        "FR",
+        "CH"
+      ],
+      "region": "Europe",
+      "id": "FSL",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "LSF",
+        "French"
+      ]
+    },
+    {
+      "name": "Georgian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/georgiansignlanguage.html",
+      "iso": "",
+      "resources": [
+        "signwikigeorgia"
+      ],
+      "corpora": [],
+      "countries": [
+        "GE"
+      ],
+      "region": "Europe",
+      "id": "REG-GEORGIANSIGNLANGUAGE",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "German Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/gsg.html",
+      "iso": "gsg",
+      "resources": [
+        "dgscorpustypelist",
+        "dictasignlex",
+        "dwdgs",
+        "specialistdictionarydgsgermanhorticultureandlandscaping",
+        "specialistdictionarydgsgermanhealthandnursing",
+        "specialistdictionarydgsgermanhomeeconomics",
+        "specialistdictionarydgsgermanpsychology",
+        "sematos",
+        "sign2mint",
+        "specialistdictionarydgsgermansocialworkandsocialpedagogics",
+        "spreadthesign",
+        "specialistdictionarydgsgermanjoinery"
+      ],
+      "corpora": [
+        "DGS Corpus",
+        "Dicta-Sign Corpus",
+        "ECHO Corpus",
+        "VIDI Sign Space Corpus"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "region": "Europe",
+      "id": "GSG",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "DGS"
+      ]
+    },
+    {
+      "name": "Greek Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/gss.html",
+      "iso": "gss",
+      "resources": [
+        "dictasignlex",
+        "noema",
+        "polytroponlex",
+        "spreadthesign"
+      ],
+      "corpora": [
+        "Dicta-Sign Corpus",
+        "Dicta-Sign-GSL-v2",
+        "POLYTROPON Parallel Corpus"
+      ],
+      "countries": [
+        "GR"
+      ],
+      "region": "Europe",
+      "id": "GSS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Ho Chi Minh City Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/hos.html",
+      "iso": "hos",
+      "resources": [
+        "asiansignbank"
+      ],
+      "corpora": [],
+      "countries": [
+        "VN"
+      ],
+      "region": "Asia",
+      "id": "HOS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Hong Kong Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/hks.html",
+      "iso": "hks",
+      "resources": [
+        "asiansignbank",
+        "hkslbrowser"
+      ],
+      "corpora": [
+        "Hong Kong Sign Language Corpus"
+      ],
+      "countries": [
+        "HK"
+      ],
+      "region": "Asia",
+      "id": "HKS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "HKSL"
+      ]
+    },
+    {
+      "name": "Hungarian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/hsh.html",
+      "iso": "hsh",
+      "resources": [
+        "hallatlandictionary"
+      ],
+      "corpora": [
+        "Hungarian Sign Language Corpus"
+      ],
+      "countries": [
+        "HU"
+      ],
+      "region": "Europe",
+      "id": "HSH",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Icelandic Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/icl.html",
+      "iso": "icl",
+      "resources": [
+        "islandsignwiki",
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "IS"
+      ],
+      "region": "Europe",
+      "id": "ICL",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Indian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/ins.html",
+      "iso": "ins",
+      "resources": [
+        "indiantechnicalsldict",
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "IN"
+      ],
+      "region": "Asia",
+      "id": "ISL",
+      "localCatalog": "isl.json",
+      "note": "ISL here means Indian Sign Language. Irish and Israeli Sign Languages have separate profiles.",
+      "aliases": [
+        "ISL",
+        "Indian"
+      ]
+    },
+    {
+      "name": "International Sign",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/ils.html",
+      "iso": "ils",
+      "resources": [
+        "dictio",
+        "sematos",
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [],
+      "region": "International",
+      "id": "ILS",
+      "localCatalog": null,
+      "note": "International Sign is used for cross-language communication. It does not replace national sign languages.",
+      "aliases": [
+        "IS",
+        "International Sign"
+      ]
+    },
+    {
+      "name": "Inuit Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/iks.html",
+      "iso": "iks",
+      "resources": [],
+      "corpora": [
+        "Documentation and description of Inuit Sign Language"
+      ],
+      "countries": [
+        "CA"
+      ],
+      "region": "Americas",
+      "id": "IKS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Iranian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/psc.html",
+      "iso": "psc",
+      "resources": [
+        "globalsignbankzei"
+      ],
+      "corpora": [
+        "ZEI Corpus"
+      ],
+      "countries": [
+        "IR"
+      ],
+      "region": "Asia",
+      "id": "PSC",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Irish Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/isg.html",
+      "iso": "isg",
+      "resources": [
+        "islstemglossary"
+      ],
+      "corpora": [
+        "Signs of Ireland"
+      ],
+      "countries": [
+        "IE"
+      ],
+      "region": "Europe",
+      "id": "ISG",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Israeli Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/isr.html",
+      "iso": "isr",
+      "resources": [
+        "islonlinedict",
+        "isllex"
+      ],
+      "corpora": [],
+      "countries": [
+        "IL"
+      ],
+      "region": "Asia",
+      "id": "ISR",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Italian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/ise.html",
+      "iso": "ise",
+      "resources": [
+        "dizlis",
+        "elis",
+        "sgbfss",
+        "spreadthesign"
+      ],
+      "corpora": [
+        "Italian Sign Language Corpus"
+      ],
+      "countries": [
+        "IT",
+        "CH"
+      ],
+      "region": "Europe",
+      "id": "ISE",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "LIS"
+      ]
+    },
+    {
+      "name": "Ivorian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/ivoriansignlanguage.html",
+      "iso": "",
+      "resources": [
+        "wikisignlsci"
+      ],
+      "corpora": [
+        "Documentation and description of a sign language in Côte d’Ivoire"
+      ],
+      "countries": [
+        "CI"
+      ],
+      "region": "Africa",
+      "id": "REG-IVORIANSIGNLANGUAGE",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Jakarta Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/jakartasl.html",
+      "iso": "",
+      "resources": [
+        "asiansignbank"
+      ],
+      "corpora": [],
+      "countries": [
+        "ID"
+      ],
+      "region": "Asia",
+      "id": "REG-JAKARTASL",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Japanese Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/jsl.html",
+      "iso": "jsl",
+      "resources": [
+        "asiansignbank",
+        "spreadthesign"
+      ],
+      "corpora": [
+        "Japanese Sign Language Colloquial Corpus"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "region": "Asia",
+      "id": "JSL",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "JSL"
+      ]
+    },
+    {
+      "name": "Kafr Qasem Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/sqx.html",
+      "iso": "sqx",
+      "resources": [
+        "kafrqasemsldict"
+      ],
+      "corpora": [],
+      "countries": [
+        "IL"
+      ],
+      "region": "Asia",
+      "id": "SQX",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Kata Kolok",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/bqy.html",
+      "iso": "bqy",
+      "resources": [
+        "katakoloksignbank"
+      ],
+      "corpora": [
+        "Kata Kolok Corpus"
+      ],
+      "countries": [
+        "ID"
+      ],
+      "region": "Asia",
+      "id": "BQY",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Kenyan Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/xki.html",
+      "iso": "xki",
+      "resources": [
+        "kenyansldictionary"
+      ],
+      "corpora": [],
+      "countries": [
+        "KE"
+      ],
+      "region": "Africa",
+      "id": "XKI",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "KSL",
+        "Kenyan"
+      ]
+    },
+    {
+      "name": "Korean Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/kvk.html",
+      "iso": "kvk",
+      "resources": [
+        "koreansldictionary"
+      ],
+      "corpora": [
+        "Korean Sign Language Corpus"
+      ],
+      "countries": [
+        "KR"
+      ],
+      "region": "Asia",
+      "id": "KVK",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "KSL",
+        "Korean"
+      ]
+    },
+    {
+      "name": "Latvian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/lsl.html",
+      "iso": "lsl",
+      "resources": [
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "LV"
+      ],
+      "region": "Europe",
+      "id": "LSL",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Libras",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/bzs.html",
+      "iso": "bzs",
+      "resources": [
+        "signbanklibras",
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "BR"
+      ],
+      "region": "Americas",
+      "id": "BZS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "Libras"
+      ]
+    },
+    {
+      "name": "Lithuanian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/lls.html",
+      "iso": "lls",
+      "resources": [
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "LT"
+      ],
+      "region": "Europe",
+      "id": "LLS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Malagasy Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/mzc.html",
+      "iso": "mzc",
+      "resources": [
+        "wikisignsmalagasysl"
+      ],
+      "corpora": [],
+      "countries": [
+        "MG"
+      ],
+      "region": "Africa",
+      "id": "MZC",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Malian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/bog.html",
+      "iso": "bog",
+      "resources": [],
+      "corpora": [
+        "A reference corpus of the Malian Sign Language/Langue des Signes Malienne (LSM)"
+      ],
+      "countries": [
+        "ML"
+      ],
+      "region": "Africa",
+      "id": "BOG",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Mardin Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/dsz.html",
+      "iso": "dsz",
+      "resources": [],
+      "corpora": [
+        "Signing in a ‘deaf family’ – documentation of the Mardin Sign Language, Turkey"
+      ],
+      "countries": [
+        "TR"
+      ],
+      "region": "Europe",
+      "id": "DSZ",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Mexican Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/mfs.html",
+      "iso": "mfs",
+      "resources": [
+        "spreadthesign",
+        "wikisignsmsl"
+      ],
+      "corpora": [],
+      "countries": [
+        "MX"
+      ],
+      "region": "Americas",
+      "id": "MFS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "LSM"
+      ]
+    },
+    {
+      "name": "Namibian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/nbs.html",
+      "iso": "nbs",
+      "resources": [
+        "signwikinamibia"
+      ],
+      "corpora": [],
+      "countries": [
+        "NA"
+      ],
+      "region": "Africa",
+      "id": "NBS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "New Zealand Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/nzs.html",
+      "iso": "nzs",
+      "resources": [
+        "nzsldictionary",
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "NZ"
+      ],
+      "region": "Oceania",
+      "id": "NZS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "NZSL"
+      ]
+    },
+    {
+      "name": "Norwegian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/nsl.html",
+      "iso": "nsl",
+      "resources": [
+        "globalsignbanknts",
+        "norsktegnordbok",
+        "tegnwikinorge"
+      ],
+      "corpora": [],
+      "countries": [
+        "NO"
+      ],
+      "region": "Europe",
+      "id": "NSL",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "NS",
+        "NTS",
+        "Norwegian"
+      ]
+    },
+    {
+      "name": "Pakistan Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/pks.html",
+      "iso": "pks",
+      "resources": [
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "PK"
+      ],
+      "region": "Asia",
+      "id": "PKS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Polish Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/pso.html",
+      "iso": "pso",
+      "resources": [
+        "cdpsl",
+        "spreadthesign"
+      ],
+      "corpora": [
+        "PJM Corpus"
+      ],
+      "countries": [
+        "PL"
+      ],
+      "region": "Europe",
+      "id": "PSO",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Portuguese Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/psr.html",
+      "iso": "psr",
+      "resources": [
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "PT"
+      ],
+      "region": "Europe",
+      "id": "PSR",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "LGP"
+      ]
+    },
+    {
+      "name": "Romanian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/rms.html",
+      "iso": "rms",
+      "resources": [
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "RO"
+      ],
+      "region": "Europe",
+      "id": "RMS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Russian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/rsl.html",
+      "iso": "rsl",
+      "resources": [
+        "spreadthesign",
+        "rsllexvar"
+      ],
+      "corpora": [
+        "Russian Sign Language Corpus"
+      ],
+      "countries": [
+        "RU"
+      ],
+      "region": "Europe",
+      "id": "RSL",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Sign Language of the Netherlands",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/dse.html",
+      "iso": "dse",
+      "resources": [
+        "globalsignbankngt"
+      ],
+      "corpora": [
+        "Corpus NGT",
+        "ECHO Corpus",
+        "Giving Cognition a Hand Corpus",
+        "IPROSLA Corpus",
+        "Visibase Corpus"
+      ],
+      "countries": [
+        "NL"
+      ],
+      "region": "Europe",
+      "id": "DSE",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Slovak Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/svk.html",
+      "iso": "svk",
+      "resources": [
+        "dictio"
+      ],
+      "corpora": [],
+      "countries": [
+        "SK"
+      ],
+      "region": "Europe",
+      "id": "SVK",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Slovene Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/slovenesignlanguage.html",
+      "iso": "",
+      "resources": [
+        "slovarszj",
+        "spreadthesign"
+      ],
+      "corpora": [
+        "SIGNOR Corpus"
+      ],
+      "countries": [
+        "SI"
+      ],
+      "region": "Europe",
+      "id": "REG-SLOVENESIGNLANGUAGE",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Spanish Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/ssp.html",
+      "iso": "ssp",
+      "resources": [
+        "dilse",
+        "lsesign",
+        "sematos",
+        "signamed",
+        "spreadthesign"
+      ],
+      "corpora": [
+        "CORLSE"
+      ],
+      "countries": [
+        "ES"
+      ],
+      "region": "Europe",
+      "id": "SSP",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": [
+        "LSE"
+      ]
+    },
+    {
+      "name": "Sri Lankan Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/sqs.html",
+      "iso": "sqs",
+      "resources": [
+        "asiansignbank"
+      ],
+      "corpora": [],
+      "countries": [
+        "LK"
+      ],
+      "region": "Asia",
+      "id": "SQS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Swedish Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/swl.html",
+      "iso": "swl",
+      "resources": [
+        "spreadthesign",
+        "ssld"
+      ],
+      "corpora": [
+        "ECHO Corpus",
+        "Swedish Sign Language corpus"
+      ],
+      "countries": [
+        "SE"
+      ],
+      "region": "Europe",
+      "id": "SWL",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Swiss-German Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/sgg.html",
+      "iso": "sgg",
+      "resources": [
+        "sgbfss",
+        "dsgslexikon"
+      ],
+      "corpora": [],
+      "countries": [
+        "CH"
+      ],
+      "region": "Europe",
+      "id": "SGG",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Tanzanian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/tza.html",
+      "iso": "tza",
+      "resources": [
+        "signwikitanzania"
+      ],
+      "corpora": [],
+      "countries": [
+        "TZ"
+      ],
+      "region": "Africa",
+      "id": "TZA",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Turkish Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/tsm.html",
+      "iso": "tsm",
+      "resources": [
+        "bogaziciuniversitydictionary",
+        "contemporarytiddict",
+        "spreadthesign"
+      ],
+      "corpora": [
+        "Giving Cognition a Hand Corpus",
+        "VIDI Sign Space Corpus"
+      ],
+      "countries": [
+        "TR"
+      ],
+      "region": "Europe",
+      "id": "TSM",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Ukrainian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/ukl.html",
+      "iso": "ukl",
+      "resources": [
+        "dictio",
+        "spreadthesign"
+      ],
+      "corpora": [],
+      "countries": [
+        "UA"
+      ],
+      "region": "Europe",
+      "id": "UKL",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "West Bengal Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/wbs.html",
+      "iso": "wbs",
+      "resources": [
+        "wikisignswestbengalsl"
+      ],
+      "corpora": [],
+      "countries": [
+        "IN"
+      ],
+      "region": "Asia",
+      "id": "WBS",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Yangon Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/ysm.html",
+      "iso": "ysm",
+      "resources": [
+        "asiansignbank"
+      ],
+      "corpora": [],
+      "countries": [
+        "MM"
+      ],
+      "region": "Asia",
+      "id": "YSM",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "name": "Yogyakarta Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/language/yogyakartasl.html",
+      "iso": "",
+      "resources": [
+        "asiansignbank"
+      ],
+      "corpora": [],
+      "countries": [
+        "ID"
+      ],
+      "region": "Asia",
+      "id": "REG-YOGYAKARTASL",
+      "localCatalog": null,
+      "note": "Country associations help discovery and are not a complete census of local sign languages.",
+      "aliases": []
+    },
+    {
+      "id": "ZIB",
+      "name": "Zimbabwean Sign Language",
+      "iso": "zib",
+      "countries": [
+        "ZW"
+      ],
+      "region": "Africa",
+      "sourceUrl": "https://deafzimbabwetrust.org/",
+      "resources": [
+        "learning-zib"
+      ],
+      "corpora": [],
+      "localCatalog": null,
+      "note": "Community training; no verified bundled word index or complete alphabet chart.",
+      "aliases": [
+        "ZGS",
+        "ZSL"
+      ]
+    },
+    {
+      "id": "SFS",
+      "name": "South African Sign Language",
+      "iso": "sfs",
+      "countries": [
+        "ZA"
+      ],
+      "region": "Africa",
+      "sourceUrl": "https://nid.org.za/resources/",
+      "resources": [
+        "learning-sfs"
+      ],
+      "corpora": [],
+      "localCatalog": null,
+      "note": "Free alphabet and common-sign posters. Dictionary subscription may apply.",
+      "aliases": [
+        "SASL"
+      ]
+    },
+    {
+      "id": "TSE",
+      "name": "Taiwan Sign Language",
+      "iso": "tse",
+      "countries": [
+        "TW"
+      ],
+      "region": "Asia",
+      "sourceUrl": "https://twtsl.ccu.edu.tw/en/intro",
+      "resources": [
+        "learning-tse"
+      ],
+      "corpora": [],
+      "localCatalog": null,
+      "note": "Word videos and example sentences at source. Not a bundled translation model.",
+      "aliases": [
+        "TSL",
+        "Taiwan"
+      ]
+    },
+    {
+      "id": "FSP",
+      "name": "Filipino Sign Language",
+      "iso": "psp",
+      "countries": [
+        "PH"
+      ],
+      "region": "Asia",
+      "sourceUrl": "https://cead.benilde.edu.ph/fsl-signbank/",
+      "resources": [
+        "learning-fsp"
+      ],
+      "corpora": [],
+      "localCatalog": null,
+      "note": "Filipino FSL is distinct from French LSF. Provider availability varies.",
+      "aliases": [
+        "FSL",
+        "Filipino"
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "adasllexicon",
+      "name": "Adamorobe Sign Language Lexicon",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/adasllexicon.html",
+      "urls": [
+        "https://hdl.handle.net/1839/00-0000-0000-0016-8A57-F"
+      ],
+      "license": "information not available",
+      "access": "restricted access",
+      "institution": "Leiden University, Centre for Linguistics"
+    },
+    {
+      "id": "albsldict",
+      "name": "Albanian Sign Language Dictionary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/albsldict.html",
+      "urls": [
+        "https://gjshsh.al"
+      ],
+      "license": "Download and copying prohibited; individual licence agreement may be possible",
+      "access": "Public access via browsable homepage",
+      "institution": "Shoqata Kombëtare Shqiptare e Njerëzve që nuk Dëgjojnë (ANAD), Finnish Association of the Deaf, Disability Partnership Finland, Ministry for Foreign Affairs of Finland"
+    },
+    {
+      "id": "ajsldict",
+      "name": "Algerian Jewish Sign Language Dictionary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/ajsldict.html",
+      "urls": [
+        "https://signlab.haifa.ac.il/2013/10/15/ajsl-1"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "University of Haifa in Israel"
+    },
+    {
+      "id": "asiansignbank",
+      "name": "Asian Signbank",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/asiansignbank.html",
+      "urls": [
+        "http://www.cslds.org/asb/welcome.jsp",
+        "http://cslds.org/asiansignbank/"
+      ],
+      "license": "Asian Signbank licence",
+      "access": "Public access via browsable homepage for 4750 signs",
+      "institution": "Centre for Sign Linguistics and Deaf Studies, Department of Linguistics and Modern Languages, Department of Systems Engineering and Engineering Management, Chinese University of Hong Kong"
+    },
+    {
+      "id": "aslsignbank",
+      "name": "ASL Signbank",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/aslsignbank.html",
+      "urls": [
+        "http://aslsignbank.com/",
+        "https://aslsignbank.haskins.yale.edu/"
+      ],
+      "license": "CC BY-NC-SA 4.0",
+      "access": "Public access to 2848 signs via browsable homepage",
+      "institution": "SLAAASh Project, Haskins Lab, Yale University"
+    },
+    {
+      "id": "asllex",
+      "name": "ASL-LEX",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/asllex.html",
+      "urls": [
+        "https://asl-lex.org/",
+        "https://asl-lex.org/visualization/"
+      ],
+      "license": "CC BY-NC 4.0",
+      "access": "Public access via browsable homepage, open access to download raw data",
+      "institution": "San Diego State University, Boston University and Tufts University"
+    },
+    {
+      "id": "auslansignbank",
+      "name": "Auslan Signbank",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/auslansignbank.html",
+      "urls": [
+        "https://auslan.org.au/"
+      ],
+      "license": "CC BY-NC-ND 4.0",
+      "access": "Public access via browsable homepage, for more detailed information confirmed registration needed",
+      "institution": "The Myer Foundation, Sidney Myer Fund, Next Sense, Telstra Foundation, Macquarie University, AMP, deaf connect Ed, Deaf Services, Monash University, Australian Research Data Commons"
+    },
+    {
+      "id": "bogaziciuniversitydictionary",
+      "name": "Boğaziçi University Dictionary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/bogaziciuniversitydictionary.html",
+      "urls": [
+        "https://www.cmpe.boun.edu.tr/tid/"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Boğaziçi University"
+    },
+    {
+      "id": "bslglossary",
+      "name": "British Sign Language Glossaries of Curriculum Terms",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/bslglossary.html",
+      "urls": [
+        "https://www.ssc.education.ed.ac.uk/BSL/"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Scottish Sensory Center (SSC), Edinburgh"
+    },
+    {
+      "id": "bslsignbank",
+      "name": "BSL SignBank",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/bslsignbank.html",
+      "urls": [
+        "https://bslsignbank.ucl.ac.uk/"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage, for more detailed information confirmed registration needed",
+      "institution": "University College London"
+    },
+    {
+      "id": "cdpsl",
+      "name": "CDPSL: Corpus-based Dictionary of Polish Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/cdpsl.html",
+      "urls": [
+        "https://www.slownikpjm.uw.edu.pl/en"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "University of Warsaw"
+    },
+    {
+      "id": "contemporarytiddict",
+      "name": "Contemporary Turkish Sign Language Dictionary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/contemporarytiddict.html",
+      "urls": [
+        "https://tidsozluk.aile.gov.tr/"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "The Republic of Türkiye Ministry of Family and Social Services"
+    },
+    {
+      "id": "czechsldomainspecificlexicon",
+      "name": "CZJ domain specific Lexicon",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/czechsldomainspecificlexicon.html",
+      "urls": [],
+      "license": "information not available",
+      "access": "Not online available at the time of writing",
+      "institution": "University of West Bohemia"
+    },
+    {
+      "id": "dtsdictionary",
+      "name": "Danish Sign Language Dictionary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/dtsdictionary.html",
+      "urls": [
+        "https://www.tegnsprog.dk/"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "University College Copenhagen"
+    },
+    {
+      "id": "dgscorpustypelist",
+      "name": "DGS Corpus types list",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/dgscorpustypelist.html",
+      "urls": [
+        "https://meine-dgs.de/ling/types_en.html"
+      ],
+      "license": "DGS Corpus license",
+      "access": "Public access via browsable homepage",
+      "institution": "Universität Hamburg"
+    },
+    {
+      "id": "dictasignlex",
+      "name": "Dicta-Sign Lexicon",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/dictasignlex.html",
+      "urls": [
+        "https://www.sign-lang.uni-hamburg.de/dicta-sign/portal/"
+      ],
+      "license": "Individual license agreement for researchers",
+      "access": "Public access via browsable homepage; some videos temporarily unavailable at the time of writing",
+      "institution": "Institute for Language and Speech Processing, Universität Hamburg, University of East Anglia, University of Surrey, Laboratoire d'informatique pour la mécanique et les sciences de l'ingénieur (LIMSI), Université Paul Sabatier, National Technical University of Athens, WebSourd"
+    },
+    {
+      "id": "dictio",
+      "name": "Dictio",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/dictio.html",
+      "urls": [
+        "https://www.dictio.info/"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage, more content requires confirmed registration; keyword search temporarily unavailable at the time of writing",
+      "institution": "Masaryk University, Brno, Czechia"
+    },
+    {
+      "id": "lescodict",
+      "name": "Dictionary of LESCO",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/lescodict.html",
+      "urls": [
+        "https://lesco.cenarec.go.cr/index.php/diccionariolesco"
+      ],
+      "license": "BY-NC-SA",
+      "access": "Public access via browsable homepage",
+      "institution": "Centro Nacional de Recursos para la Educación Inclusiva (CENAREC)"
+    },
+    {
+      "id": "dictionaryofnewmedicalsignlanguageterms",
+      "name": "Dictionary of new medical sign language terms",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/dictionaryofnewmedicalsignlanguageterms.html",
+      "urls": [
+        "https://diccionariolsc.ces.edu.co/",
+        "https://editorial.ces.edu.co/diccionario-lsc/diccionario-completo/"
+      ],
+      "license": "Open licence",
+      "access": "Public access via browsable homepage",
+      "institution": ""
+    },
+    {
+      "id": "dilse",
+      "name": "DILSE",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/dilse.html",
+      "urls": [
+        "https://fundacioncnse-dilse.org/"
+      ],
+      "license": "CC BY-NC-SA 3.0",
+      "access": "Public access via browsable homepage, content can be shared and downloaded",
+      "institution": "Fundación CNSE"
+    },
+    {
+      "id": "dizlis",
+      "name": "DIZLIS",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/dizlis.html",
+      "urls": [
+        "http://www.dizlis.it/"
+      ],
+      "license": "Dizlis license",
+      "access": "Public access via browsable homepage",
+      "institution": "Cooperativa Alba"
+    },
+    {
+      "id": "dwdgs",
+      "name": "DW-DGS",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/dwdgs.html",
+      "urls": [
+        "https://dw-dgs.de"
+      ],
+      "license": "DW-DGS Licence",
+      "access": "Public access via browsable homepage",
+      "institution": "Universität Hamburg"
+    },
+    {
+      "id": "elis",
+      "name": "e-LIS",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/elis.html",
+      "urls": [
+        "http://hdl.handle.net/20.500.12124/75",
+        "http://elisdiz.eurac.edu/diz/",
+        "http://elis.eurac.edu/index_it.html"
+      ],
+      "license": "CC BY-NC-SA 4.0",
+      "access": "The underlying data of the dictionary is available for download.",
+      "institution": "Eurac Research"
+    },
+    {
+      "id": "elix",
+      "name": "Elix",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/elix.html",
+      "urls": [
+        "https://dico.elix-lsf.fr/"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Signe de sens"
+    },
+    {
+      "id": "filosenando",
+      "name": "Filoseñando",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/filosenando.html",
+      "urls": [
+        "https://drive.google.com/drive/folders/1rK3dP9fHviws8_y519BPJP0EdM74BtQl?usp=sharing"
+      ],
+      "license": "information not available",
+      "access": "Public access to prototype",
+      "institution": "Universidad de Antioquia, Facultad de Educación, Medellín, Colombia"
+    },
+    {
+      "id": "finnishsignbank",
+      "name": "Finnish Signbank",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/finnishsignbank.html",
+      "urls": [
+        "https://signbank.csc.fi/"
+      ],
+      "license": "CC BY-NC-SA 4.0",
+      "access": "Public access via browsable homepage",
+      "institution": "University of Jyväskylä"
+    },
+    {
+      "id": "specialistdictionarydgsgermanhorticultureandlandscaping",
+      "name": "GaLex",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/specialistdictionarydgsgermanhorticultureandlandscaping.html",
+      "urls": [
+        "https://www.sign-lang.uni-hamburg.de/galex/"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Universität Hamburg"
+    },
+    {
+      "id": "specialistdictionarydgsgermanhealthandnursing",
+      "name": "GLex",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/specialistdictionarydgsgermanhealthandnursing.html",
+      "urls": [
+        "https://www.sign-lang.uni-hamburg.de/glex/"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Universität Hamburg"
+    },
+    {
+      "id": "katakoloksignbank",
+      "name": "Global Signbank - Kata Kolok",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/katakoloksignbank.html",
+      "urls": [
+        "https://signbank.cls.ru.nl/datasets/Kata"
+      ],
+      "license": "information not available",
+      "access": "access to 103 glosses with confirmed registration",
+      "institution": "Radboud University Nijmegen"
+    },
+    {
+      "id": "globalsignbanklsfb",
+      "name": "Global Signbank - LSFB",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/globalsignbanklsfb.html",
+      "urls": [
+        "https://signbank.cls.ru.nl/datasets/LSFB"
+      ],
+      "license": "information not available",
+      "access": "Restricted access",
+      "institution": "information not available"
+    },
+    {
+      "id": "globalsignbankngt",
+      "name": "Global Signbank - NGT",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/globalsignbankngt.html",
+      "urls": [
+        "https://signbank.cls.ru.nl/datasets/NGT"
+      ],
+      "license": "CC BY 4.0",
+      "access": "Most signs are public accessible via homepage. Confirmed registered user can access additional data, mainly consisting of name signs and test items.",
+      "institution": ""
+    },
+    {
+      "id": "globalsignbanknts",
+      "name": "Global Signbank - NTS",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/globalsignbanknts.html",
+      "urls": [
+        "https://signbank.cls.ru.nl/datasets/NTS"
+      ],
+      "license": "information not available",
+      "access": "Restricted access",
+      "institution": "Norwegian University of Science and Technology"
+    },
+    {
+      "id": "globalsignbankvgt",
+      "name": "Global Signbank - VGT",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/globalsignbankvgt.html",
+      "urls": [
+        "https://signbank.cls.ru.nl/datasets/VGT"
+      ],
+      "license": "information not available",
+      "access": "Restricted access",
+      "institution": "Vlaams Gebarentaal Centrum, Antwerp"
+    },
+    {
+      "id": "globalsignbankzei",
+      "name": "Global Signbank - ZEI",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/globalsignbankzei.html",
+      "urls": [
+        "https://signbank.cls.ru.nl/datasets/ZEI"
+      ],
+      "license": "information not available",
+      "access": "Restricted access",
+      "institution": "Razi University of Kermanshah, Endangered Languages Documentation Programme"
+    },
+    {
+      "id": "hallatlandictionary",
+      "name": "Hallatlan Dictionary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/hallatlandictionary.html",
+      "urls": [
+        "https://www.hallatlan.hu/c/jelek/"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Hallatlan Foundation"
+    },
+    {
+      "id": "specialistdictionarydgsgermanhomeeconomics",
+      "name": "HLex",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/specialistdictionarydgsgermanhomeeconomics.html",
+      "urls": [
+        "https://www.sign-lang.uni-hamburg.de/hlex/"
+      ],
+      "license": "information not available",
+      "access": "Temporarily unavailable at the time of writing",
+      "institution": "Universität Hamburg"
+    },
+    {
+      "id": "hkslbrowser",
+      "name": "Hong Kong Sign Language Browser",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/hkslbrowser.html",
+      "urls": [
+        "http://www.cslds.org/hkslbrowser/"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage to 2022 signs",
+      "institution": "Centre for Sign Linguistics and Deaf Studies, Department of Linguistics and Modern Languages, Chinese University of Hong Kong"
+    },
+    {
+      "id": "indiantechnicalsldict",
+      "name": "Indian Technical Sign Language Dictionary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/indiantechnicalsldict.html",
+      "urls": [
+        "https://indiansignlanguage.org"
+      ],
+      "license": "information not available",
+      "access": "Open access via browsable homepage",
+      "institution": "Ramakrishna Mission Vivekananda Educational and Research Institute"
+    },
+    {
+      "id": "insor",
+      "name": "INSOR Dictionary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/insor.html",
+      "urls": [
+        "https://educativo.insor.gov.co/diccionario/"
+      ],
+      "license": "Open licence",
+      "access": "Public access via browsable homepage",
+      "institution": "Colombian National for Deaf Institute (INSOR)"
+    },
+    {
+      "id": "islstemglossary",
+      "name": "Irish Sign Language STEM Glossary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/islstemglossary.html",
+      "urls": [
+        "https://www.dcu.ie/islstem"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Dublin City University"
+    },
+    {
+      "id": "islonlinedict",
+      "name": "ISL Dictionary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/islonlinedict.html",
+      "urls": [
+        "https://isl.danfishgold.com",
+        "https://sfatsimanim.co.il"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Institute for the Advancement of Deaf Persons in Israel (IADPI)"
+    },
+    {
+      "id": "isllex",
+      "name": "ISL-LEX",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/isllex.html",
+      "urls": [
+        "https://sites.google.com/view/isl-lex",
+        "https://asl-lex.github.io/isl-lex/index.html"
+      ],
+      "license": "CC BY-NC 4.0",
+      "access": "Public access via browsable homepage",
+      "institution": "University of Haifa in Israel"
+    },
+    {
+      "id": "kafrqasemsldict",
+      "name": "Kafr Qasem Sign Language Dictionary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/kafrqasemsldict.html",
+      "urls": [
+        "https://signlab.haifa.ac.il/index.php/component/k2/itemlist/"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "University of Haifa in Israel"
+    },
+    {
+      "id": "koreansldictionary",
+      "name": "Korean Sign Language Dictionary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/koreansldictionary.html",
+      "urls": [
+        "https://sldict.korean.go.kr/"
+      ],
+      "license": "CC BY-SA 2.0 KR",
+      "access": "Public access via browsable homepage",
+      "institution": "National Institute of the Korean Language, Special Language Promotion Division"
+    },
+    {
+      "id": "krousarthmeydictionary",
+      "name": "Krousar Thmey Dictionary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/krousarthmeydictionary.html",
+      "urls": [
+        "http://ijs.92.dico.free.fr/dictionnaire_langue_signes_sign_language_khmer_cambodge/english/index.html"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Krousar Thmey"
+    },
+    {
+      "id": "kenyansldictionary",
+      "name": "KSL Dictionary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/kenyansldictionary.html",
+      "urls": [
+        "https://www.ksldictionary.com/",
+        "https://play.google.com/store/apps/details?id=com.mstadi.ksldictionary.ksldict"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage and mobile application",
+      "institution": "MSTADI (https://www.mstadi.com )"
+    },
+    {
+      "id": "ledasila",
+      "name": "LedaSila",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/ledasila.html",
+      "urls": [
+        "https://ledasila.aau.at"
+      ],
+      "license": "Creative Commons (unspecified)",
+      "access": "Public access via browsable homepage",
+      "institution": "Alpe-Adria-Universität Klagenfurt"
+    },
+    {
+      "id": "lesico",
+      "name": "LeSiCo",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/lesico.html",
+      "urls": [],
+      "license": "Open licensed, citation required",
+      "access": "For registered users",
+      "institution": "National University of Colombia"
+    },
+    {
+      "id": "lexlsfb",
+      "name": "Lex-LSFB",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/lexlsfb.html",
+      "urls": [
+        "https://www.corpus-lsfb.be/lexique.php"
+      ],
+      "license": "CC BY-NC-SA 4.0",
+      "access": "Public access via browsable homepage",
+      "institution": "French Belgian Sign Language Laboratory (LSFB-Lab)"
+    },
+    {
+      "id": "lsesign",
+      "name": "LSE-Sign",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/lsesign.html",
+      "urls": [
+        "http://lse-sign.bcbl.eu/web-busqueda/"
+      ],
+      "license": "LSE-Sign license",
+      "access": "Restricted access requires confirmed registration",
+      "institution": "Basque Center on Cognition, Brain and Language (BCBL), Fundación CNSE"
+    },
+    {
+      "id": "lsfbenligne",
+      "name": "LSFB en ligne",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/lsfbenligne.html",
+      "urls": [
+        "http://dicto.lsfb.be/"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "LSFB asbl"
+    },
+    {
+      "id": "nzsldictionary",
+      "name": "New Zealand Sign Language Online Dictionary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/nzsldictionary.html",
+      "urls": [
+        "https://www.nzsl.nz/",
+        "https://play.google.com/store/apps/details?id=com.hewgill.android.nzsldict&hl=en",
+        "https://apps.apple.com/nz/app/nzsl-dictionary/id521076445"
+      ],
+      "license": "CC BY-NC-SA 4.0",
+      "access": "Public access via browsable homepage and free apps",
+      "institution": "Deaf Studies Research Unit, Victoria University of Wellington"
+    },
+    {
+      "id": "noema",
+      "name": "NOEMA",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/noema.html",
+      "urls": [
+        "https://sign.ilsp.gr/signilsp-site/index.php/el/noima/",
+        "http://metashare.ilsp.gr:8080/repository/browse/basic-vocabulary-of-the-greek-sign-language/2cd9b952609f11e2918d842b2b6a04d7b614b9b36fad487582ca52a4eb0a6473/"
+      ],
+      "license": "information not available",
+      "access": "Restricted access requires individual license agreement",
+      "institution": "Institute for Language and Speech Processing, Athena Research Center"
+    },
+    {
+      "id": "norsktegnordbok",
+      "name": "Norsk Tegnordbok",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/norsktegnordbok.html",
+      "urls": [
+        "https://www.tegnordbok.no"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Statped, Møller-Trøndelag kompetansesenter"
+    },
+    {
+      "id": "ocelles",
+      "name": "Ocelles",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/ocelles.html",
+      "urls": [
+        "http://www.ocelles.fr"
+      ],
+      "license": "CC BY-SA 2.0 FR",
+      "access": "Public access via browsable homepage",
+      "institution": "Ocelles"
+    },
+    {
+      "id": "specialistdictionarydgsgermanpsychology",
+      "name": "PLex",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/specialistdictionarydgsgermanpsychology.html",
+      "urls": [
+        "https://www.sign-lang.uni-hamburg.de/projekte/plex/start.htm"
+      ],
+      "license": "information not available",
+      "access": "Temporarily unavailable at the time of writing",
+      "institution": "Universität Hamburg"
+    },
+    {
+      "id": "polytroponlex",
+      "name": "POLYTROPON Lexicon",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/polytroponlex.html",
+      "urls": [],
+      "license": "Individual license agreement may be possible",
+      "access": "Not available online at the time of writing",
+      "institution": "Institute for Language and Speech Processing, Athena Research Center"
+    },
+    {
+      "id": "sematos",
+      "name": "sematos",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/sematos.html",
+      "urls": [
+        "http://www.sematos.eu"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage; DGS dataset temporarily unavailable at the time of writing",
+      "institution": "sematos"
+    },
+    {
+      "id": "senario",
+      "name": "Señario de términos y expresiones básicas en la Lengua de Señas Argentina",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/senario.html",
+      "urls": [
+        "https://cas.org.ar/senario-de-terminos-y-expresiones-en-lengua-de-senas-argentina/"
+      ],
+      "license": "information not available",
+      "access": "Open access after filling a form",
+      "institution": "Confederación Argentina de Sordos"
+    },
+    {
+      "id": "sgbfss",
+      "name": "SGB-FSS Lexicon",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/sgbfss.html",
+      "urls": [
+        "https://www.sgb-fss.ch/signsuisse/"
+      ],
+      "license": "Restricted access requires individual license agreement",
+      "access": "Public access via browsable homepage",
+      "institution": "SGB-FSS Schweizerischer Gehörlosenbund (Swiss Association of the Deaf)"
+    },
+    {
+      "id": "sign2mint",
+      "name": "Sign2MINT",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/sign2mint.html",
+      "urls": [
+        "https://sign2mint.de/"
+      ],
+      "license": "CC BY-NC-SA 3.0 DE",
+      "access": "Public access via browsable homepage",
+      "institution": "Max-Planck-Gesellschaft zur Förderung der Wissenschaften e.V."
+    },
+    {
+      "id": "signamed",
+      "name": "SignaMed",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/signamed.html",
+      "urls": [
+        "https://signamed.uvigo.es/",
+        "https://signamed.web.app/"
+      ],
+      "license": "information not available",
+      "access": "The dictionary and its search feature are publicly accessible. A free user account must be created to access some features, such as bookmarks and games, elicitation tasks and other functionality centred around the donation of recordings.",
+      "institution": "University of Vigo, Vigo, Spain"
+    },
+    {
+      "id": "signbanklibras",
+      "name": "Signbank da Libras",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/signbanklibras.html",
+      "urls": [
+        "https://signbank.libras.ufsc.br"
+      ],
+      "license": "Creative Commons",
+      "access": "Public access via browsable homepage",
+      "institution": "Universidade Federal de Santa Catarina"
+    },
+    {
+      "id": "signstudy",
+      "name": "SignStudy",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/signstudy.html",
+      "urls": [
+        "http://www.signstudy.org/"
+      ],
+      "license": "information not available",
+      "access": "Temporarily unavailable at the time of writing",
+      "institution": "SignSchool"
+    },
+    {
+      "id": "signwikifinland",
+      "name": "SignWiki Finland",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/signwikifinland.html",
+      "urls": [
+        "https://finssl.signwiki.org"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Finnish Association of the Deaf"
+    },
+    {
+      "id": "foroyarsignwiki",
+      "name": "SignWiki Føroyar",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/foroyarsignwiki.html",
+      "urls": [
+        "https://fo.signwiki.org"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "information not available"
+    },
+    {
+      "id": "signwikigeorgia",
+      "name": "SignWiki Georgia",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/signwikigeorgia.html",
+      "urls": [
+        "https://ge.signwiki.org"
+      ],
+      "license": "information not available",
+      "access": "Public access browsable homepage",
+      "institution": "Ministry of Education and Science of Georgia"
+    },
+    {
+      "id": "islandsignwiki",
+      "name": "SignWiki Ísland",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/islandsignwiki.html",
+      "urls": [
+        "https://is.signwiki.org"
+      ],
+      "license": "SignWiki license (\"Höfundaréttur\") ,",
+      "access": "Public access via browsable homepage",
+      "institution": "Samskiptamiðstöðvar heyrnarlausra og heyrnarskertra (SHH)"
+    },
+    {
+      "id": "signwikinamibia",
+      "name": "SignWiki Namibia",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/signwikinamibia.html",
+      "urls": [
+        "https://na.signwiki.org"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Centre for Communication and Deaf Studies in Namibia (CCDS), Communication Centre for Deaf and Hard of hearing in Iceland (SHH)"
+    },
+    {
+      "id": "signwikisuomi",
+      "name": "SignWiki Suomi",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/signwikisuomi.html",
+      "urls": [
+        "https://finsl.signwiki.org"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Finnish Association of the Deaf"
+    },
+    {
+      "id": "signwikitanzania",
+      "name": "SignWiki Tanzania",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/signwikitanzania.html",
+      "urls": [
+        "https://tz.signwiki.org"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "University in Dar es Salaam (UDSM), University of Oslo, Archbishop Mihayo University College of Tabora (AMUCTA) and Communication Centre for Deaf and Hard of Hearing in Iceland (SHH)"
+    },
+    {
+      "id": "specialistdictionarydgsgermansocialworkandsocialpedagogics",
+      "name": "SLex",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/specialistdictionarydgsgermansocialworkandsocialpedagogics.html",
+      "urls": [
+        "https://www.sign-lang.uni-hamburg.de/slex/"
+      ],
+      "license": "information not available",
+      "access": "Temporarily unavailable at the time of writing",
+      "institution": "Universität Hamburg"
+    },
+    {
+      "id": "slovarszj",
+      "name": "Slovar SZJ",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/slovarszj.html",
+      "urls": [
+        "https://www.szj.si/"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Zveza društev gluhih in naglušnih Slovenije (Slovene Association of the Deaf)"
+    },
+    {
+      "id": "spreadthesign",
+      "name": "SpreadTheSign",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/spreadthesign.html",
+      "urls": [
+        "https://www.spreadthesign.com"
+      ],
+      "license": "SpreadTheSign licence",
+      "access": "Public access via browsable homepage",
+      "institution": "European Sign Language Center"
+    },
+    {
+      "id": "suvi",
+      "name": "SUVI or Basic Dictionary of FinSL",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/suvi.html",
+      "urls": [
+        "https://suvi.viittomat.net/"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Finnish Association of the Deaf"
+    },
+    {
+      "id": "ssld",
+      "name": "Swedish Sign Language Dictionary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/ssld.html",
+      "urls": [
+        "https://teckensprakslexikon.su.se/"
+      ],
+      "license": "CC BY-NC-SA 4.0",
+      "access": "Public access via browsable homepage",
+      "institution": "University Stockholm"
+    },
+    {
+      "id": "dsgslexikon",
+      "name": "Swiss German Sign Language Lexicon",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/dsgslexikon.html",
+      "urls": [
+        "https://linguistik-signlang.uzh.ch"
+      ],
+      "license": "Individual license agreement may be possible",
+      "access": "Temporarily unavailable at the time of writing",
+      "institution": "University of Zurich"
+    },
+    {
+      "id": "tegnwikinorge",
+      "name": "TegnWiki Norge",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/tegnwikinorge.html",
+      "urls": [
+        "https://www.tegnwiki.no",
+        "https://no.signwiki.org"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Statped"
+    },
+    {
+      "id": "rsllexvar",
+      "name": "The Database of Lexical Variation in Russian Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/rsllexvar.html",
+      "urls": [
+        "https://rsl-research-explore.garagemca.org/"
+      ],
+      "license": "The Database of Lexical Variation in Russian Sign Language Licence",
+      "access": "Public access via browsable homepage",
+      "institution": "Garage Museum of Contemporary Art in Moscow"
+    },
+    {
+      "id": "specialistdictionarydgsgermanjoinery",
+      "name": "TLex",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/specialistdictionarydgsgermanjoinery.html",
+      "urls": [
+        "https://www.sign-lang.uni-hamburg.de/tlex"
+      ],
+      "license": "information not available",
+      "access": "Temporarily unavailable at the time of writing",
+      "institution": "Universität Hamburg"
+    },
+    {
+      "id": "treeoflife",
+      "name": "Tree of Life Foundation Glossary",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/treeoflife.html",
+      "urls": [
+        "https://www.youtube.com/channel/UCCvTtbSfbWAc8gVfg-ZcAYg/videos"
+      ],
+      "license": "Open licence",
+      "access": "Public access via browsable homepage (youtube)",
+      "institution": "Tree of Life Foundation (Fundarvid ARBOL DE VIDA)"
+    },
+    {
+      "id": "wikisignlsc",
+      "name": "Wikisign LSC",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/wikisignlsc.html",
+      "urls": [
+        "http://lsc.wikisign.org"
+      ],
+      "license": "CC BY-SA 2.0 ES",
+      "access": "Public access via browsable homepage",
+      "institution": "information not available"
+    },
+    {
+      "id": "wikisignlsci",
+      "name": "Wikisign LSCI",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/wikisignlsci.html",
+      "urls": [
+        "http://lsci.wikisign.org/wiki/Wikisign:Accueil"
+      ],
+      "license": "CC BY-SA 3.0 FR",
+      "access": "Public access via browsable homepage",
+      "institution": "information not available"
+    },
+    {
+      "id": "wikisignsmalagasysl",
+      "name": "Wikisigns Langue de Signes Malagasy",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/wikisignsmalagasysl.html",
+      "urls": [
+        "http://www.wikisigns.org/list/madagascar/malagasy"
+      ],
+      "license": "CC BY-SA 4.0",
+      "access": "Public access via browsable homepage",
+      "institution": "information not available"
+    },
+    {
+      "id": "wikisignsmsl",
+      "name": "Wikisigns Lengua de Señas Mexicana",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/wikisignsmsl.html",
+      "urls": [
+        "http://www.wikisigns.org/list/es/lsm"
+      ],
+      "license": "CC BY-SA 4.0",
+      "access": "Public access via browsable homepage",
+      "institution": "information not available"
+    },
+    {
+      "id": "wikisignswestbengalsl",
+      "name": "Wikisigns West Bengal Sign Language",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/wikisignswestbengalsl.html",
+      "urls": [
+        "http://www.wikisigns.org/list/bn/wbsl"
+      ],
+      "license": "CC BY-SA 4.0",
+      "access": "Public access via browsable homepage",
+      "institution": "information not available"
+    },
+    {
+      "id": "vgtdictionary",
+      "name": "Woordenboek Vlaamse Gebarentaal",
+      "sourceUrl": "https://www.sign-lang.uni-hamburg.de/lr/compendium/lex/vgtdictionary.html",
+      "urls": [
+        "https://woordenboek.vlaamsegebarentaal.be"
+      ],
+      "license": "information not available",
+      "access": "Public access via browsable homepage",
+      "institution": "Flemish Sign Language Center (VGTC)"
+    },
+    {
+      "id": "learning-zib",
+      "name": "Deaf Zimbabwe Trust",
+      "sourceUrl": "https://deafzimbabwetrust.org/",
+      "urls": [
+        "https://deafzimbabwetrust.org/"
+      ],
+      "institution": "Deaf Zimbabwe Trust",
+      "access": "Community training information; contact provider. Not an indexed video dictionary.",
+      "license": "Rights remain with the provider; source links only. No copying or offline caching of provider media.",
+      "languages": [
+        "Zimbabwean Sign Language"
+      ]
+    },
+    {
+      "id": "learning-sfs",
+      "name": "National Institute for the Deaf",
+      "sourceUrl": "https://nid.org.za/resources/",
+      "urls": [
+        "https://nid.org.za/resources/"
+      ],
+      "institution": "National Institute for the Deaf",
+      "access": "Free public learning resources; dictionary subscription required.",
+      "license": "Rights remain with the provider; source links only. No copying or offline caching of provider media.",
+      "languages": [
+        "South African Sign Language"
+      ]
+    },
+    {
+      "id": "learning-tse",
+      "name": "National Chung Cheng University TSL Dictionary",
+      "sourceUrl": "https://twtsl.ccu.edu.tw/en/intro",
+      "urls": [
+        "https://twtsl.ccu.edu.tw/en/intro"
+      ],
+      "institution": "National Chung Cheng University TSL Dictionary",
+      "access": "Public dictionary at source; provider availability varies.",
+      "license": "Rights remain with the provider; source links only. No copying or offline caching of provider media.",
+      "languages": [
+        "Taiwan Sign Language"
+      ]
+    },
+    {
+      "id": "learning-fsp",
+      "name": "Benilde CEAD FSL Signbank",
+      "sourceUrl": "https://cead.benilde.edu.ph/fsl-signbank/",
+      "urls": [
+        "https://cead.benilde.edu.ph/fsl-signbank/"
+      ],
+      "institution": "Benilde CEAD FSL Signbank",
+      "access": "Public signbank and learning material at source; provider availability varies.",
+      "license": "Rights remain with the provider; source links only. No copying or offline caching of provider media.",
+      "languages": [
+        "Filipino Sign Language"
+      ]
+    }
+  ]
+}
