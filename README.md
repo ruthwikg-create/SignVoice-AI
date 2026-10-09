@@ -1,10 +1,12 @@
-# SignVoice AI — World Languages v1.3.1
+# SignVoice AI — World Languages v1.4
 
 ## World Languages learning edition
 
 The requested ASL, Indian ISL, BSL, Auslan, NZSL, French LSF, Mexican LSM, Chinese CSL, Zimbabwean ZGS/ZSL, JSL, Libras, LSE, DGS, LIS, SASL, Norwegian NS/NTS, HKSL, Korean KSL, Taiwan TSL, Filipino FSL, Kenyan KSL, LGP and International Sign choices are available with full names. Duplicated Auslan appears once.
 
 Every sign-language selector has a search field. Type a full name such as **American Sign Language**, a partial name such as **British**, or an abbreviation such as **ASL** or **KSL**. Click a matching language, press Enter for the first result, or use Arrow Down and Enter to choose. Escape clears the search. The original dropdown remains available with all 87 profiles.
+
+**Sign library** now has searchable cards for all 23 requested languages, links to their source dictionaries and community lessons, alphabet guides where indexed, and a per-language source-library list with access and usage information. Changing the language clears stale word/category/letter filters. There are also 12 selected BSL, Auslan, NZSL and LSF word references, linked to verified provider pages. These starter links work in typed vocabulary practice; their videos open at the source. Other international profiles remain source directories until verified word references or personal lessons are added. Korean and Kenyan KSL, and French LSF and Filipino FSL, keep separate libraries.
 
 Typed sentences become ordered vocabulary practice with playable-video counts, missing-word lookup, verified lesson-link editing, and local video/image playback. Select **Watch sequence** and use **Next sign** for provider videos; local videos can advance automatically when they end. Alphabet guides are linked or embedded where verified. The full dictionaries/alphabets of every listed language are not bundled.
 

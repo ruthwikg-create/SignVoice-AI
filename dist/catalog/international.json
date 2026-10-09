@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-09",
+  "coverage": "12 selected, source-linked starter references for BSL, Auslan, NZSL and LSF. Videos remain at their providers; this is not a complete dictionary.",
+  "entries": [
+    {
+      "id": "intl-bfi-1",
+      "language": "BFI",
+      "label": "hello",
+      "aliases": [],
+      "referenceUrl": "https://bslsignbank.ucl.ac.uk/dictionary/words/hello-1.html",
+      "source": "UCL BSL SignBank",
+      "kind": "reference",
+      "category": "Starter source lessons",
+      "media": null,
+      "instruction": "Open the source to watch the complete demonstration, including movement and expression. Check its meaning and regional variants. This linked reference is not a pretrained webcam model."
+    },
+    {
+      "id": "intl-bfi-2",
+      "language": "BFI",
+      "label": "hi",
+      "aliases": [
+        "wave",
+        "goodbye",
+        "bye"
+      ],
+      "referenceUrl": "https://bslsignbank.ucl.ac.uk/dictionary/words/hi-1.html",
+      "source": "UCL BSL SignBank",
+      "kind": "reference",
+      "category": "Starter source lessons",
+      "media": null,
+      "instruction": "Open the source to watch the complete demonstration, including movement and expression. Check its meaning and regional variants. This linked reference is not a pretrained webcam model."
+    },
+    {
+      "id": "intl-bfi-3",
+      "language": "BFI",
+      "label": "know",
+      "aliases": [
+        "knowledge",
+        "aware"
+      ],
+      "referenceUrl": "https://bslsignbank.ucl.ac.uk/dictionary/words/know-1.html",
+      "source": "UCL BSL SignBank",
+      "kind": "reference",
+      "category": "Starter source lessons",
+      "media": null,
+      "instruction": "Open the source to watch the complete demonstration, including movement and expression. Check its meaning and regional variants. This linked reference is not a pretrained webcam model."
+    },
+    {
+      "id": "intl-asf-4",
+      "language": "ASF",
+      "label": "hello",
+      "aliases": [
+        "hi"
+      ],
+      "referenceUrl": "https://auslan.org.au/dictionary/words/hello-1.html",
+      "source": "Auslan Signbank",
+      "kind": "reference",
+      "category": "Starter source lessons",
+      "media": null,
+      "instruction": "Open the source to watch the complete demonstration, including movement and expression. Check its meaning and regional variants. This linked reference is not a pretrained webcam model."
+    },
+    {
+      "id": "intl-asf-5",
+      "language": "ASF",
+      "label": "hello",
+      "aliases": [
+        "hi"
+      ],
+      "referenceUrl": "https://auslan.org.au/dictionary/words/hello-2.html",
+      "source": "Auslan Signbank",
+      "kind": "reference",
+      "category": "Starter source lessons",
+      "media": null,
+      "instruction": "Open the source to watch the complete demonstration, including movement and expression. Check its meaning and regional variants. This linked reference is not a pretrained webcam model."
+    },
+    {
+      "id": "intl-asf-6",
+      "language": "ASF",
+      "label": "hi",
+      "aliases": [
+        "hello"
+      ],
+      "referenceUrl": "https://auslan.org.au/dictionary/words/hi-1.html",
+      "source": "Auslan Signbank",
+      "kind": "reference",
+      "category": "Starter source lessons",
+      "media": null,
+      "instruction": "Open the source to watch the complete demonstration, including movement and expression. Check its meaning and regional variants. This linked reference is not a pretrained webcam model."
+    },
+    {
+      "id": "intl-asf-7",
+      "language": "ASF",
+      "label": "morning",
+      "aliases": [],
+      "referenceUrl": "https://auslan.org.au/dictionary/words/morning-1.html",
+      "source": "Auslan Signbank",
+      "kind": "reference",
+      "category": "Starter source lessons",
+      "media": null,
+      "instruction": "Open the source to watch the complete demonstration, including movement and expression. Check its meaning and regional variants. This linked reference is not a pretrained webcam model."
+    },
+    {
+      "id": "intl-nzs-8",
+      "language": "NZS",
+      "label": "hello",
+      "aliases": [
+        "hi",
+        "salute",
+        "kia ora",
+        "tēnā koe"
+      ],
+      "referenceUrl": "https://www.nzsl.nz/signs/321",
+      "source": "NZSL Dictionary · Victoria University of Wellington",
+      "kind": "reference",
+      "category": "Starter source lessons",
+      "media": null,
+      "instruction": "Open the source to watch the complete demonstration, including movement and expression. Check its meaning and regional variants. This linked reference is not a pretrained webcam model."
+    },
+    {
+      "id": "intl-nzs-9",
+      "language": "NZS",
+      "label": "goodbye",
+      "aliases": [
+        "hello",
+        "bye",
+        "hi",
+        "kia ora",
+        "haere rā"
+      ],
+      "referenceUrl": "https://www.nzsl.nz/signs/1301",
+      "source": "NZSL Dictionary · Victoria University of Wellington",
+      "kind": "reference",
+      "category": "Starter source lessons",
+      "media": null,
+      "instruction": "Open the source to watch the complete demonstration, including movement and expression. Check its meaning and regional variants. This linked reference is not a pretrained webcam model."
+    },
+    {
+      "id": "intl-fsl-10",
+      "language": "FSL",
+      "label": "bonjour",
+      "aliases": [
+        "hello"
+      ],
+      "referenceUrl": "https://dico.elix-lsf.fr/dictionnaire/bonjour/n.m.-137586",
+      "source": "Le Dico Elix · LSF",
+      "kind": "reference",
+      "category": "Starter source lessons",
+      "media": null,
+      "instruction": "Open the source to watch the complete demonstration, including movement and expression. Check its meaning and regional variants. This linked reference is not a pretrained webcam model."
+    },
+    {
+      "id": "intl-fsl-11",
+      "language": "FSL",
+      "label": "merci",
+      "aliases": [
+        "thank you",
+        "thanks"
+      ],
+      "referenceUrl": "https://dico.elix-lsf.fr/dictionnaire/merci/n.m.-188172",
+      "source": "Le Dico Elix · LSF",
+      "kind": "reference",
+      "category": "Starter source lessons",
+      "media": null,
+      "instruction": "Open the source to watch the complete demonstration, including movement and expression. Check its meaning and regional variants. This linked reference is not a pretrained webcam model."
+    },
+    {
+      "id": "intl-fsl-12",
+      "language": "FSL",
+      "label": "eau",
+      "aliases": [
+        "water"
+      ],
+      "referenceUrl": "https://dico.elix-lsf.fr/dictionnaire/eau/n.f.-157168",
+      "source": "Le Dico Elix · LSF",
+      "kind": "reference",
+      "category": "Starter source lessons",
+      "media": null,
+      "instruction": "Open the source to watch the complete demonstration, including movement and expression. Check its meaning and regional variants. This linked reference is not a pretrained webcam model."
+    }
+  ]
+}
