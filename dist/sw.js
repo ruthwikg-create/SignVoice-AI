@@ -1,6 +1,6 @@
 // Only cache this application's public static assets. No third-party videos or personal data.
-const CACHE='signvoice-shell-v1.3.0';
-const SHELL=['./','./index.html','./styles.css','./world.css','./app.js','./config.js','./recognition.js','./storage.js','./learning-ui.js','./learning-resources.js','./lesson-engine.js','./alphabet.js','./languages.js','./world-ui.js','./world-engine.js','./clip-storage.js','./offline.js','./catalog/world.json','./catalog/asl.json','./catalog/isl.json','./catalog/metadata.json','./vision.worker.js','./media/asl-alphabet.png','./icon.svg','./icon-192.png','./icon-512.png','./manifest.webmanifest','./privacy.html','./terms.html'];
+const CACHE='signvoice-shell-v1.3.1';
+const SHELL=['./','./index.html','./styles.css','./world.css','./app.js','./config.js','./recognition.js','./storage.js','./learning-ui.js','./learning-resources.js','./lesson-engine.js','./alphabet.js','./languages.js','./language-picker.js','./world-ui.js','./world-engine.js','./clip-storage.js','./offline.js','./catalog/world.json','./catalog/asl.json','./catalog/isl.json','./catalog/metadata.json','./vision.worker.js','./media/asl-alphabet.png','./icon.svg','./icon-192.png','./icon-512.png','./manifest.webmanifest','./privacy.html','./terms.html'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL))));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const name of await caches.keys())if(name.startsWith('signvoice-shell-')&&name!==CACHE)await caches.delete(name);await self.clients.claim();})()));
 self.addEventListener('fetch',event=>{

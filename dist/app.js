@@ -1,4 +1,5 @@
 import {LANGUAGES,isLanguage,languageName,populateLanguageSelects} from './languages.js';
+import {setupLanguageSearch} from './language-picker.js';
 import {createWorldUI} from './world-ui.js';
 import {setupOffline} from './offline.js';
 import { CONFIG } from './config.js';
@@ -6,7 +7,9 @@ import { NEUTRAL, RecognitionGate, trainProfile, validateDataset } from './recog
 import { loadEntries, saveEntries } from './storage.js';
 import { createLearningUI } from './learning-ui.js';
 const $=id=>document.getElementById(id);
-populateLanguageSelects(['live-language','lesson-language','train-language','library-language','catalog-language','clip-language']);
+const languageSelectIds=['live-language','lesson-language','train-language','library-language','catalog-language','clip-language'];
+populateLanguageSelects(languageSelectIds);
+setupLanguageSearch(languageSelectIds);
 const gate=new RecognitionGate();
 const video=$('camera'), canvas=$('overlay'), ctx=canvas.getContext('2d');
 const trainingCanvas=$('train-preview'),trainingCtx=trainingCanvas.getContext('2d');
