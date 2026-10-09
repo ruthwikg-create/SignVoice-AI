@@ -1,0 +1,7 @@
+{
+  "README": "Replace paths and labels with your real owned/licensed, verified sign recordings. This manifest supplies no example sign data. Repeat each class with independent recordings and add neutral clips.",
+  "clips": [
+    {"path":"clips/your-isl-sign-take1.mp4","language":"ISL","label":"Your verified ISL label","speech":"Words to speak","kind":"motion","signer":"signer-1","session":"session-1"},
+    {"path":"clips/background-take1.mp4","language":"ISL","label":"Neutral / background","speech":"","kind":"neutral","signer":"signer-1","session":"session-1"}
+  ]
+}

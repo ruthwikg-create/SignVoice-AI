@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtemp,writeFile,readFile,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {spawnSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+const script=fileURLToPath(new URL('../training/evaluate.mjs',import.meta.url));
+function entry(id,shape){return {id,label:id,speech:id==='__neutral__'?'':id,language:'ISL',kind:id==='__neutral__'?'neutral':'motion',samples:Array.from({length:9},(_,i)=>({id:'s'+i,signer:'person-1',session:'session-'+Math.floor(i/3),frames:Array.from({length:30},()=>{const f=Array(132).fill(0);for(let j=0;j<63;j++)f[j]=shape+(i%3)*.002;f[65]=1;f[63]=1;f[64]=1;return f;})}))};}
+test('evaluation holds complete sessions out and emits background false-acceptance rate',async()=>{const dir=await mkdtemp(join(tmpdir(),'sv-eval-'));try{const input=join(dir,'recordings.json'),output=join(dir,'report.json');await writeFile(input,JSON.stringify({schemaVersion:1,featureVersion:'hands-v1-132',entries:[entry('test-class',.2),entry('__neutral__',-1)]}));const r=spawnSync(process.execPath,[script,input,'ISL','session',output],{encoding:'utf8'});assert.equal(r.status,0,r.stderr);const report=JSON.parse(await readFile(output,'utf8'));assert.equal(report.total,18);assert.equal(report.folds.length,3);assert.equal(report.accuracy,1);assert.equal(report.backgroundFalseAcceptanceRate,0);assert.ok(report.folds.every(f=>f.testSamples===6));}finally{await rm(dir,{recursive:true,force:true});}});
+test('evaluation refuses invented accuracy from recordings in one session',async()=>{const dir=await mkdtemp(join(tmpdir(),'sv-eval-'));try{const input=join(dir,'recordings.json');const a=entry('test-class',.2),b=entry('__neutral__',-1);for(const e of [a,b])for(const s of e.samples)s.session='only-session';await writeFile(input,JSON.stringify({schemaVersion:1,featureVersion:'hands-v1-132',entries:[a,b]}));const r=spawnSync(process.execPath,[script,input,'ISL','session',join(dir,'report.json')],{encoding:'utf8'});assert.notEqual(r.status,0);assert.match(r.stderr,/at least 2 distinct session/);}finally{await rm(dir,{recursive:true,force:true});}});

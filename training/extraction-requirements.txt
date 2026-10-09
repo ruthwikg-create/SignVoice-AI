@@ -1,0 +1,4 @@
+# Use Python 3.10–3.12 in a separate venv for this pinned extractor.
+numpy>=1.26,<2
+mediapipe==0.10.21
+opencv-python>=4.10,<5

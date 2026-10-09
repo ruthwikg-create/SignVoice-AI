@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "retrievedAt": "2026-10-09",
+  "ASL": {
+    "count": 2085,
+    "source": "https://www.lifeprint.com/dictionary.htm",
+    "coverage": "All links exposed in the fetched A–Z indexes; not every possible ASL sign"
+  },
+  "ISL": {
+    "count": 15438,
+    "source": "https://drive.google.com/drive/folders/1U-Pr4r1-cupgNOOq9NH_uTsQnPSVEKco",
+    "directories": 45,
+    "missingDirectories": [],
+    "coverage": "Video references exposed in the fetched published directory tree, including variants. No claim of a complete language or recognition model."
+  },
+  "directories": [
+    {
+      "id": "1U-Pr4r1-cupgNOOq9NH_uTsQnPSVEKco",
+      "label": "ISL Dictionary"
+    },
+    {
+      "id": "1nkI7lddegUWDvmGsmn68QkB5ikp5_3kt",
+      "label": "ISL Dictionary/A"
+    },
+    {
+      "id": "1S-G5qoWth0aI9fLzKs8Myv2LyMrq8jUh",
+      "label": "ISL Dictionary/B"
+    },
+    {
+      "id": "1iZvUpDh5gtzoRmQKWAVfCOe8iWEjzS2S",
+      "label": "ISL Dictionary/C"
+    },
+    {
+      "id": "1aQywSGpfHXOdM1pfs2rfqU3Y_ScLXRjh",
+      "label": "ISL Dictionary/D"
+    },
+    {
+      "id": "13pJC91P8ligEXJh7ZcVbdOdBv8OM7ugw",
+      "label": "ISL Dictionary/E"
+    },
+    {
+      "id": "1uwjIG-hYqxYTURtWMEpmCc9NzV13uz-S",
+      "label": "ISL Dictionary/F"
+    },
+    {
+      "id": "1_jxELuDPMQb67NM6woqcdcn5QWd2mVeC",
+      "label": "ISL Dictionary/G"
+    },
+    {
+      "id": "1BL9C7zyFAcRQg-DsM-CiIjsoFMbSvTCt",
+      "label": "ISL Dictionary/H"
+    },
+    {
+      "id": "1K6eUYZLdCRh21Ecxx9wcsAJ3HP7jd4CI",
+      "label": "ISL Dictionary/I"
+    },
+    {
+      "id": "198cCQXlwdAwmxabGVvXMZKQ-lnDclO37",
+      "label": "ISL Dictionary/J"
+    },
+    {
+      "id": "1rXKlSTKyWJNqDL6-lupJuufMUZW7Zunc",
+      "label": "ISL Dictionary/K"
+    },
+    {
+      "id": "1MbKLv9fBdLUPE4-PrSbSGBCnudtuKRTg",
+      "label": "ISL Dictionary/L"
+    },
+    {
+      "id": "1qDHOYx4Eijrgo3cZHucMIlPRKgcK__8Z",
+      "label": "ISL Dictionary/M"
+    },
+    {
+      "id": "1ycgeamdvYhaNW-5Z-xPYLBvi7C1xuMRH",
+      "label": "ISL Dictionary/MHSL - 259"
+    },
+    {
+      "id": "1UUeBYdHraz86n9wgJG2HR4-gfMuO6o8e",
+      "label": "ISL Dictionary/N"
+    },
+    {
+      "id": "1A1T72ZbXaNJAKBZmwJtU0nQpIZAIYdeC",
+      "label": "ISL Dictionary/NCERT 156 new"
+    },
+    {
+      "id": "1WQnYirJsKGVOL8Z-SjH7ip3AVE9wqwGO",
+      "label": "ISL Dictionary/New 2500 ISL Dictionary Videos"
+    },
+    {
+      "id": "1QBiSSz2zyV0CvaPRZo4V2jkn8FI2-jsT",
+      "label": "ISL Dictionary/Numbers"
+    },
+    {
+      "id": "1FZVV2snPZAR9_Zcy-XEo15cKgcVbMiUM",
+      "label": "ISL Dictionary/O"
+    },
+    {
+      "id": "1hR6GnLjEj8_I5UPDJg3ZE0oQDzCnzXFy",
+      "label": "ISL Dictionary/P"
+    },
+    {
+      "id": "1Q6BYTJRyUElN6XCKrU9RXW2YzHGICPUA",
+      "label": "ISL Dictionary/Q"
+    },
+    {
+      "id": "1Zkr_CW-PmeGFjmJRmjA-lYubIVnFyb7o",
+      "label": "ISL Dictionary/R"
+    },
+    {
+      "id": "1EQaicx76vWxgQwSosFQcAbrzgePEwPYN",
+      "label": "ISL Dictionary/S"
+    },
+    {
+      "id": "1QcM74V2Q4OGRzDhZrP_ULHd5W4XgzmPw",
+      "label": "ISL Dictionary/T"
+    },
+    {
+      "id": "1g9DxvHVMcoID1PhbvR8kJ5Mhq921hDcM",
+      "label": "ISL Dictionary/U"
+    },
+    {
+      "id": "1hdhswMEW2FbBhi4GPgYsTBrhThpuSoNK",
+      "label": "ISL Dictionary/V"
+    },
+    {
+      "id": "1JMWkAryDQ074isVeD0_umJfFHOhb3f6t",
+      "label": "ISL Dictionary/W"
+    },
+    {
+      "id": "1t4mOWrTel2OXS76RX7b9X2Gf-6MqmrFp",
+      "label": "ISL Dictionary/X"
+    },
+    {
+      "id": "1wiWGUBD_R_KobXRAE3Erpp7XUZrUuYNb",
+      "label": "ISL Dictionary/Y"
+    },
+    {
+      "id": "1cTyPjYRqrBTG2cEHQNXd4oRGkp9HtY4M",
+      "label": "ISL Dictionary/Z"
+    },
+    {
+      "id": "1hwBn_HNeo5pjPbR3iiiLBBseJK5UPcfK",
+      "label": "ISL Dictionary/New 2500 ISL Dictionary Videos/Anuprayaas"
+    },
+    {
+      "id": "1WxhSl-QK3Jwnc1oYjwbU3bGn_fUp-Yhz",
+      "label": "ISL Dictionary/New 2500 ISL Dictionary Videos/BCS"
+    },
+    {
+      "id": "1mzBj9zxk2nwBMo6sHB7BGu2d1BltKF6v",
+      "label": "ISL Dictionary/New 2500 ISL Dictionary Videos/ISH"
+    },
+    {
+      "id": "1E717e-j8hy1DEByZnfPVLHSPj4vHPSBC",
+      "label": "ISL Dictionary/New 2500 ISL Dictionary Videos/ISLRTC 300"
+    },
+    {
+      "id": "1gBzA56vEeptDuzy_29t2NtL5-lTbTu5o",
+      "label": "ISL Dictionary/New 2500 ISL Dictionary Videos/Yunikee 1"
+    },
+    {
+      "id": "1Vn9njg5ZsBAwv5N5d4qrBwwwwmqYWuR1",
+      "label": "ISL Dictionary/New 2500 ISL Dictionary Videos/Yunikee 2"
+    },
+    {
+      "id": "1vlwEpeKNnMbgcSRzeObeQR3sYqI9gPS2",
+      "label": "ISL Dictionary/New 2500 ISL Dictionary Videos/Anuprayaas/English"
+    },
+    {
+      "id": "1yKsf4oQ60OUYyOgxTc1qlMtI3oZAlIOf",
+      "label": "ISL Dictionary/New 2500 ISL Dictionary Videos/Anuprayaas/Hindi"
+    },
+    {
+      "id": "128OIXSnyQoLgwZg6YyOLcdoazu9GwowE",
+      "label": "ISL Dictionary/New 2500 ISL Dictionary Videos/ISH/English"
+    },
+    {
+      "id": "1oNtSKbBu_oCsNs3HhhAXrsjNlTMZmcIs",
+      "label": "ISL Dictionary/New 2500 ISL Dictionary Videos/ISH/Hindi"
+    },
+    {
+      "id": "1w6Pr1XpzLbaIkezraFXHiW-k5z-0vAhu",
+      "label": "ISL Dictionary/New 2500 ISL Dictionary Videos/Yunikee 1/New English"
+    },
+    {
+      "id": "1aT5YvDnxKuKrrFjs6pbiOkDDVk2eHGY7",
+      "label": "ISL Dictionary/New 2500 ISL Dictionary Videos/Yunikee 1/New Hindi"
+    },
+    {
+      "id": "173ZGk3-AAhHSPFCVAFQAg6UWKAhHcSof",
+      "label": "ISL Dictionary/New 2500 ISL Dictionary Videos/Yunikee 2/English"
+    },
+    {
+      "id": "1UodfCGzq7s_FEUFJ1dsd_YERwLAOFALl",
+      "label": "ISL Dictionary/New 2500 ISL Dictionary Videos/Yunikee 2/Hindi"
+    }
+  ]
+}
