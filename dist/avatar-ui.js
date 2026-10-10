@@ -1,69 +1,83 @@
 import {compileAvatar,sampleAvatar,activeAvatarSegment,avatarDefinition,AVATAR_WORDS} from './avatar-engine.js';
-import {renderAvatarFrame} from './avatar-renderer.js';
+import {renderAvatarFrame,renderHandDetail} from './avatar-renderer.js';
 import {languageName} from './languages.js';
+import {PRACTICE_KEY,cleanPractice,savePhrase,recordPractice,advancePractice} from './avatar-practice.js';
 
 const $=id=>document.getElementById(id);
-export function createAvatarUI({getLanguage,getText,toast,onAvatarMode=()=>{},onReferenceMode=()=>{}}){
- let plan=null,time=0,playing=false,last=0,raf=null,yaw=0,previousWord=null;
+const CONTROL_IDS=['avatar-play','avatar-replay','avatar-prev','avatar-next','avatar-frame-prev','avatar-frame-next','avatar-mark-practiced'];
+export function createAvatarUI({getLanguage,getText,toast,onAvatarMode=()=>{},onReferenceMode=()=>{},createStage=async(container,callbacks)=>(await import('./avatar-human.js')).createHumanStage(container,callbacks)}){
+ let plan=null,time=0,playing=false,last=0,raf=null,previousWord=null,human=null,humanLoading=false,humanFailed=false,focusStart=null,marked=false;
+ let practice;try{practice=cleanPractice(JSON.parse(localStorage.getItem(PRACTICE_KEY)));}catch{practice=cleanPractice(null);}
  const stage=$('avatar-stage'),mode=$('lesson-display-mode'),range=$('avatar-seek');
  function stop(){playing=false;cancelAnimationFrame(raf);raf=null;last=0;$('avatar-play').textContent='▷ Play character';}
+ function persist(){try{localStorage.setItem(PRACTICE_KEY,JSON.stringify(practice));}catch{toast('Device storage is unavailable. This phrasebook lasts until you close the page.');}}
+ function refreshPhrasebook(){
+  $('avatar-saved-phrases').replaceChildren();$('avatar-progress').textContent=`${practice.sessions} sequence(s) marked practiced · ${practice.reviewed.length} animated word label(s) reviewed`;
+  for(const [index,item] of practice.phrases.entries()){
+   const row=document.createElement('div'),load=document.createElement('button'),remove=document.createElement('button');row.className='avatar-saved-row';load.className='avatar-saved-load';load.textContent=item.text+' · '+languageName(item.language);load.onclick=()=>loadPhrase(item.text,item.language);remove.className='avatar-saved-remove';remove.textContent='×';remove.setAttribute('aria-label','Remove saved phrase '+item.text);remove.onclick=()=>{practice.phrases.splice(index,1);persist();refreshPhrasebook();};row.append(load,remove);$('avatar-saved-phrases').append(row);
+  }
+  if(!practice.phrases.length){const empty=document.createElement('p');empty.className='caption';empty.textContent='Save a useful phrase, then return to it in one click.';$('avatar-saved-phrases').append(empty);}
+ }
+ function options(){return {yaw:Number($('avatar-angle').value)||0,zoom:Number($('avatar-zoom').value)||1,focus:$('avatar-focus').value||'body',contrast:$('avatar-contrast').checked};}
  function draw(){
-  const segment=activeAvatarSegment(plan,time),letter=segment?.letters?.find(l=>time>=l.start&&time<l.end)?.letter||'';
-  stage.innerHTML=renderAvatarFrame(sampleAvatar(plan?.clip,time),{yaw,word:segment?.word||'',letter,spelled:!!segment&&!segment.signed});
+  const segment=activeAvatarSegment(plan,time),letter=segment?.letters?.find(l=>time>=l.start&&time<l.end)?.letter||'',pose=sampleAvatar(plan?.clip,time),view=options();
+  if(human&&$('avatar-render-style').value==='human')human.render(pose,view);
+  else if(!humanLoading){stage.innerHTML=renderAvatarFrame(pose,{...view,word:segment?.word||'',letter,spelled:!!segment&&!segment.signed})+`<div class="avatar-diagram-hands">${renderHandDetail(pose,'Right',view)}${renderHandDetail(pose,'Left',view)}</div>`;}
   range.value=String(time);$('avatar-time').textContent=`${time.toFixed(1)} / ${(plan?.clip.duration||0).toFixed(1)} s`;
   $('avatar-subtitle').textContent=segment?`${segment.word}${segment.signed?' · animated word':' · fingerspelled'}${letter?' · '+letter:''}`:plan?(time>=plan.clip.duration?'Sequence complete':'Between words'):'Type words and select Show me the signs.';
+  $('avatar-mark-practiced').disabled=!plan||marked;
   const key=segment?.start??null;
-  if(key!==previousWord){previousWord=key;document.querySelectorAll('#avatar-words button').forEach(b=>{const selected=Number(b.dataset.start)===key;b.classList.toggle('selected',selected);b.setAttribute('aria-pressed',String(selected));});
-   $('avatar-description').replaceChildren();
-   if(segment){const definition=avatarDefinition(segment.word),text=document.createElement('span');text.textContent=segment.signed?(definition.gloss||'Experimental word animation. Confirm its execution with a fluent signer.'):`${segment.word} is outside the motion vocabulary. This shows its letters, rather than inventing a sign.`;$('avatar-description').append(text);if(segment.signed){const source=document.createElement('a');source.href=definition.source;source.target='_blank';source.rel='noopener noreferrer';source.textContent=' Motion reference ↗';$('avatar-description').append(source);}}
+  if(key!==previousWord){previousWord=key;document.querySelectorAll('#avatar-words button').forEach(b=>{const selected=Number(b.dataset.start)===key;b.classList.toggle('selected',selected);b.setAttribute('aria-pressed',String(selected));});$('avatar-description').replaceChildren();
+   if(segment){const definition=avatarDefinition(segment.word),text=document.createElement('span');text.textContent=segment.signed?(definition.gloss||'Experimental word animation. Confirm execution with a fluent signer.'):`${segment.word} is outside the motion vocabulary. This shows its letters, rather than inventing a sign.`;$('avatar-description').append(text);if(segment.signed){const source=document.createElement('a');source.href=definition.source;source.target='_blank';source.rel='noopener noreferrer';source.textContent=' Motion reference ↗';$('avatar-description').append(source);}}
   }
  }
- function tick(now){
-  if(!playing)return;
-  if(last)time+=Math.min((now-last)/1000,.1)*Number($('avatar-speed').value);last=now;
-  if(time>=plan.clip.duration){if($('avatar-loop').checked)time=0;else{time=plan.clip.duration;stop();}}
-  draw();if(playing)raf=requestAnimationFrame(tick);
+ async function ensureHuman(){
+  if(human||humanLoading||humanFailed||$('avatar-render-style').value!=='human'||getLanguage()!=='ASL')return;
+  humanLoading=true;$('avatar-render-status').textContent='Loading textured human signer…';
+  try{human=await createStage(stage,{onStatus(message){$('avatar-render-status').textContent=message;},onFailure(message){humanFailed=true;human?.dispose();human=null;humanLoading=false;$('avatar-render-style').value='lightweight';$('avatar-render-status').textContent=message;draw();}});
+   humanLoading=false;if(human){refreshMode();if($('avatar-render-style').value!=='human')$('avatar-render-status').textContent='Lightweight diagram · enlarged hands';draw();}
+  }catch{humanLoading=false;humanFailed=true;$('avatar-render-style').value='lightweight';$('avatar-render-status').textContent='3D graphics are unavailable in this browser. Enlarged hand diagrams remain available; try hardware acceleration or another browser for the textured model.';draw();}
  }
- function play(){if(!plan)return;if(time>=plan.clip.duration)time=0;playing=true;last=0;$('avatar-play').textContent='Ⅱ Pause';raf=requestAnimationFrame(tick);}
+ function currentSegment(){return activeAvatarSegment(plan,time)||plan?.segments.find(s=>time<s.end)||plan?.segments.at(-1);}
+ function tick(now){
+  if(!playing||!plan)return;
+  if(last){const next=advancePractice(plan,time,Math.min((now-last)/1000,.1)*Number($('avatar-speed').value),{repeatWord:$('avatar-repeat-word').checked,pauseWord:$('avatar-pause-word').checked,loop:$('avatar-loop').checked,focusStart});time=next.time;focusStart=next.focusStart;if(next.stop)stop();}
+  if(playing)last=now;draw();if(playing)raf=requestAnimationFrame(tick);
+ }
+ function play(){if(!plan)return;if(time>=plan.clip.duration)time=0;else if($('avatar-pause-word').checked&&!$('avatar-repeat-word').checked){const segment=currentSegment();if(segment&&time>=segment.end-.002)time=plan.segments[plan.segments.indexOf(segment)+1]?.start??0;}playing=true;last=0;focusStart=$('avatar-repeat-word').checked?currentSegment()?.start:null;$('avatar-play').textContent='Ⅱ Pause';raf=requestAnimationFrame(tick);}
  function refreshMode(){
-  const supported=getLanguage()==='ASL',avatar=mode.value==='avatar';
-  $('avatar-panel').hidden=!avatar;$('lesson-reference-grid').hidden=avatar&&supported;
-  $('avatar-controls').hidden=!supported;stage.hidden=!supported;
-  $('avatar-language-note').hidden=supported;
+  const supported=getLanguage()==='ASL',avatar=mode.value==='avatar';$('avatar-panel').hidden=!avatar;$('lesson-reference-grid').hidden=avatar&&supported;
+  for(const id of ['avatar-controls','avatar-stage','avatar-visual-options','avatar-render-status'])$(id).hidden=!supported;
+  $('avatar-hand-labels').hidden=!supported||!human||$('avatar-render-style').value!=='human';$('avatar-language-note').hidden=supported;
   $('avatar-language-note').textContent=`Character motion is not bundled for ${languageName(getLanguage())}. Reference practice is shown below. No ASL movements are substituted for this language.`;
-  if(!avatar||!supported)stop();
-  if(avatar&&supported)onAvatarMode();
+  if(!avatar||!supported)stop();if(avatar&&supported)onAvatarMode();
  }
  function invalidate(message='Text or language changed. Select Show me the signs to rebuild.'){
-  stop();plan=null;time=0;previousWord=null;range.max='0';$('avatar-words').replaceChildren();$('avatar-description').replaceChildren();
-  $('avatar-play').disabled=true;$('avatar-replay').disabled=true;$('avatar-prev').disabled=true;$('avatar-next').disabled=true;range.disabled=true;
-  $('avatar-coverage').textContent=message;draw();refreshMode();
+  stop();plan=null;time=0;previousWord=null;focusStart=null;marked=false;range.max='0';$('avatar-words').replaceChildren();$('avatar-description').replaceChildren();for(const id of CONTROL_IDS)$(id).disabled=true;range.disabled=true;$('avatar-coverage').textContent=message;draw();refreshMode();
  }
  function build(){
-  invalidate('Preparing animation…');
-  if(getLanguage()!=='ASL'){refreshMode();return;}
-  try{
-   plan=compileAvatar(getText(),getLanguage());time=0;previousWord=null;range.max=String(plan.clip.duration);range.disabled=false;
-   for(const id of ['avatar-play','avatar-replay','avatar-prev','avatar-next'])$(id).disabled=false;
+  invalidate('Preparing animation…');if(getLanguage()!=='ASL'){refreshMode();return;}
+  try{plan=compileAvatar(getText(),getLanguage());time=0;previousWord=null;range.max=String(plan.clip.duration);range.disabled=false;for(const id of CONTROL_IDS)$(id).disabled=false;
    $('avatar-coverage').textContent=`${plan.signed.length} animated word(s) · ${plan.spelled.length} fingerspelled word(s)${plan.spelled.length?' ('+plan.spelled.join(', ')+')':''}. English word order; complete ASL grammar is not generated.`;
-   for(const segment of plan.segments){const b=document.createElement('button');b.type='button';b.className='avatar-word';b.textContent=segment.word+(segment.signed?'':' · spell');b.dataset.start=String(segment.start);b.onclick=()=>{stop();time=segment.start;draw();};$('avatar-words').append(b);}
-   draw();refreshMode();
-   if(mode.value==='avatar')play();
+   for(const segment of plan.segments){const b=document.createElement('button');b.type='button';b.className='avatar-word';b.textContent=segment.word+(segment.signed?'':' · spell');b.dataset.start=String(segment.start);b.onclick=()=>{stop();time=segment.start;focusStart=segment.start;draw();};$('avatar-words').append(b);}draw();refreshMode();
+   if(mode.value==='avatar'){ensureHuman();if(!globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches)play();}
   }catch(error){invalidate(error.message);if(mode.value==='avatar')toast(error.message);}
  }
- mode.onchange=()=>{refreshMode();if(mode.value==='reference')onReferenceMode();else if(getText().trim())build();};
- $('avatar-play').onclick=()=>playing?stop():play();
- $('avatar-replay').onclick=()=>{if(!plan)return;stop();time=0;draw();play();};
- range.oninput=()=>{stop();time=Number(range.value);draw();};
- for(const [id,direction] of [['avatar-prev',-1],['avatar-next',1]])$(id).onclick=()=>{
-  if(!plan)return;stop();const index=plan.segments.findIndex(s=>time<s.end);const next=direction===1?(index<0?plan.segments.length-1:Math.min(index+1,plan.segments.length-1)):(index<0?plan.segments.length-1:Math.max(index-1,0));time=plan.segments[next].start;draw();
- };
- $('avatar-angle').onchange=()=>{yaw=Number($('avatar-angle').value);draw();};
- $('avatar-reference-mode').onclick=()=>{mode.value='reference';refreshMode();onReferenceMode();};
- $('avatar-example').onclick=()=>{$('lesson-language').value='ASL';$('lesson-language').dispatchEvent(new Event('change',{bubbles:true}));$('lesson-text').value='I want to go home';mode.value='avatar';$('build-lesson').click();};
- $('lesson-text').addEventListener('input',()=>invalidate());
- document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
- $('avatar-vocabulary-count').textContent=`${AVATAR_WORDS.length} word labels including aliases · ASL letters and digits`;
- invalidate('ASL character ready. Try “I want to go home”.');
- return {build,invalidate,onView(view){if(view!=='learn')stop();},refreshMode};
+ function loadPhrase(text,language='ASL'){$('lesson-language').value=language;$('lesson-language').dispatchEvent(new Event('change',{bubbles:true}));$('lesson-text').value=text;mode.value='avatar';$('build-lesson').click();}
+ function stepFrame(direction){if(!plan)return;stop();time=Math.max(0,Math.min(plan.clip.duration,time+direction/15));draw();}
+ mode.onchange=()=>{refreshMode();if(mode.value==='reference')onReferenceMode();else if(getText().trim())build();else ensureHuman();};
+ $('avatar-play').onclick=()=>playing?stop():play();$('avatar-replay').onclick=()=>{if(!plan)return;stop();time=0;draw();play();};range.oninput=()=>{stop();time=Number(range.value);focusStart=null;draw();};
+ for(const [id,direction] of [['avatar-prev',-1],['avatar-next',1]])$(id).onclick=()=>{if(!plan)return;stop();const index=plan.segments.findIndex(s=>time<s.end),next=direction===1?(index<0?plan.segments.length-1:Math.min(index+1,plan.segments.length-1)):(index<0?plan.segments.length-1:Math.max(index-1,0));time=plan.segments[next].start;focusStart=time;draw();};
+ for(const [id,direction] of [['avatar-frame-prev',-1],['avatar-frame-next',1]])$(id).onclick=()=>stepFrame(direction);
+ for(const id of ['avatar-angle','avatar-focus','avatar-contrast'])$(id).onchange=draw;$('avatar-zoom').oninput=draw;
+ $('avatar-repeat-word').onchange=()=>{focusStart=$('avatar-repeat-word').checked?currentSegment()?.start:null;};
+ $('avatar-render-style').onchange=()=>{if($('avatar-render-style').value==='human'){if(human){stage.replaceChildren(human.canvas);$('avatar-render-status').textContent='Textured 3D signer · synchronized enlarged hands';draw();}else{humanFailed=false;ensureHuman();}}else{stop();draw();$('avatar-render-status').textContent='Lightweight diagram · enlarged hands';}refreshMode();};
+ $('avatar-fullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await $('avatar-panel').requestFullscreen();}catch{toast('Fullscreen is unavailable. Use hand focus and zoom to enlarge the motion.');}};
+ $('avatar-studio').tabIndex=0;$('avatar-studio').addEventListener('keydown',event=>{if(event.target!==$('avatar-studio')||!plan)return;if(event.code==='Space'){event.preventDefault();playing?stop():play();}if(['ArrowLeft','ArrowRight'].includes(event.key)){event.preventDefault();stepFrame(event.key==='ArrowRight'?1:-1);}});
+ $('avatar-reference-mode').onclick=()=>{mode.value='reference';refreshMode();onReferenceMode();};$('avatar-example').onclick=()=>loadPhrase('I want to go home');
+ $('avatar-save-phrase').onclick=()=>{try{practice=savePhrase(practice,getLanguage(),getText());persist();refreshPhrasebook();toast('Phrase saved on this device.');}catch(e){toast(e.message);}};
+ $('avatar-mark-practiced').onclick=()=>{if(!plan||marked)return;practice=recordPractice(practice,plan);marked=true;persist();refreshPhrasebook();draw();};
+ $('lesson-text').addEventListener('input',()=>invalidate());document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
+ $('avatar-vocabulary-count').textContent=`${AVATAR_WORDS.length} word labels including aliases · ASL letters and digits`;refreshPhrasebook();invalidate('ASL signing studio ready. Try “I want to go home”.');
+ return {build,invalidate,onView(view){if(view!=='learn')stop();else if(mode.value==='avatar')ensureHuman();},refreshMode,clearPractice(){practice=cleanPractice(null);try{localStorage.removeItem(PRACTICE_KEY);}catch{}refreshPhrasebook();}};
 }

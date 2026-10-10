@@ -1,10 +1,14 @@
-# SignVoice AI — Animated Character v1.5
+# SignVoice AI — Human Signing Studio v1.6
 
-## Animated character practice
+## Human signing studio
 
-Open **Text → signs**, choose **American Sign Language**, and type **I want to go home**. The articulated character animates I, WANT, GO and HOME; TO is explicitly fingerspelled. Play/pause, replay, word skipping, 0.5×–1.25× speed, looping and three viewing angles are included. Unknown words use ASL fingerspelling, with the fallback labeled. The renderer runs locally without a paid API or runtime npm dependencies.
+Open **Text → signs**, choose **American Sign Language**, and type **I want to go home**. A textured 3D human replaces the flat character as the default view. Both hands have synchronized enlarged views using the same model, bones, skin weights and textures. Focus on either hand, see five angles, zoom, switch background contrast, expand the studio, slow down to 0.25×, inspect individual frames, repeat one word or pause after every word.
 
-**Experimental:** 37 word labels including aliases, plus ASL letters and digits. This is authored motion playback, not a generative AI model or complete sentence translator. It retains English word order, does not produce full ASL grammar, and has not been validated by Deaf signers. Other languages continue to use their own reference lessons; ASL animation is never substituted. See [Animated character](docs/ANIMATED_CHARACTER.md).
+Save up to 20 practice phrases on this device and mark sequences reviewed. Counts are self-reported practice, not recognition accuracy. Space plays/pauses and arrow keys inspect frames when the studio has keyboard focus. Reduced-motion preferences prevent autoplay. A labeled lightweight hand view is available when 3D graphics cannot load.
+
+The human model comes from SignON / UPF GTI under its MIT license. Its optimized download is about 2.3 MB, with vendored Three.js rendering modules. It loads only when the signing studio is opened, requires WebGL 2 and a modern browser, and can be cached after first use. No paid avatar API or runtime npm installation is required.
+
+**Experimental:** 37 ASL word labels including aliases, plus letters and digits. This is authored motion playback, not generative AI or a complete sentence translator. The example animates I, WANT, GO and HOME while explicitly fingerspelling TO. It retains English word order, does not produce complete ASL grammar, and needs Deaf signer validation. Other languages use their own reference lessons; ASL motions are never substituted. See [Human signing studio](docs/ANIMATED_CHARACTER.md).
 
 ## World Languages learning edition
 

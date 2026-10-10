@@ -1,9 +1,9 @@
 {
   "name": "signvoice-ai",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "private": true,
   "type": "module",
-  "description": "Global sign-language resource library, experimental ASL animated character and personal webcam practice",
+  "description": "Human 3D ASL practice studio with enlarged hands, international reference library and personal webcam practice",
   "scripts": {
     "start": "node scripts/serve.mjs",
     "test": "node --test tests/*.test.mjs",

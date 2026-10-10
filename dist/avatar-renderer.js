@@ -1,4 +1,5 @@
 import {fingerTip,qRotate,qMul,qConj,restWorld,vAdd,anchorPoint} from './vendor/sign-avatar/sign-rig.js';
+import {boundsOf} from './avatar-camera.js';
 
 const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const n=value=>Number(value).toFixed(2);
@@ -64,4 +65,12 @@ export function renderAvatarFrame(pose,{width=960,height=620,yaw=0,zoom=1,word='
  add(center[2],face);
  const shapes=items.sort((a,b)=>a.depth-b.depth).map(item=>item.svg).join('');
  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="Experimental American Sign Language character${word?': '+escape(word):' at rest'}"><defs><radialGradient id="avatar-bg"><stop stop-color="#fafcf6"/><stop offset="1" stop-color="#e4eddf"/></radialGradient><linearGradient id="avatar-skin"><stop stop-color="#e9bb9c"/><stop offset="1" stop-color="#ca9275"/></linearGradient><linearGradient id="avatar-shirt" x2="0" y2="1"><stop stop-color="#347664"/><stop offset="1" stop-color="#193d34"/></linearGradient></defs><rect width="100%" height="100%" rx="18" fill="url(#avatar-bg)"/><ellipse cx="${width/2}" cy="${height-17}" rx="125" ry="12" fill="#244b3510"/>${shapes}<rect x="${width/2-170}" y="${height-69}" width="340" height="48" rx="24" fill="#fffef4" opacity=".96"/><text x="${width/2}" y="${height-38}" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#193d34">${escape(word?(spelled?'Spell: ':'')+word+(letter?' · '+letter:''):'Ready to animate')}</text><text x="22" y="28" font-family="sans-serif" font-size="11" letter-spacing="1" fill="#526c5a">EXPERIMENTAL ASL WORD PRACTICE</text></svg>`;
+}
+export function renderHandDetail(pose,side,{yaw=0,contrast=false}={}){
+ const hand=avatarGeometry(pose).hands[side],points=[hand.wrist,...Object.values(hand.fingers).flat()],{center,size}=boundsOf(points,.035),r=yaw*Math.PI/180,scale=265/size;
+ const project=p=>{const x=p[0]-center[0],z=p[2]-center[2];return [240+(x*Math.cos(r)-z*Math.sin(r))*scale,155-(p[1]-center[1])*scale,x*Math.sin(r)+z*Math.cos(r)];};
+ const layers=[],line=(a,b,width)=>{const x=project(a),y=project(b);layers.push({z:(x[2]+y[2])/2,svg:`<path d="M${n(x[0])} ${n(x[1])}L${n(y[0])} ${n(y[1])}" stroke="#e2b091" stroke-width="${n(width*scale)}" stroke-linecap="round"/>`});};
+ const palm=[hand.wrist,...['Index','Middle','Ring','Pinky'].map(f=>hand.fingers[f][0])].map(project);layers.push({z:palm.reduce((s,p)=>s+p[2],0)/palm.length,svg:`<polygon points="${palm.map(p=>n(p[0])+','+n(p[1])).join(' ')}" fill="#d5a081" stroke="#a66b51" stroke-width="2"/>`});
+ for(const [finger,chain] of Object.entries(hand.fingers)){if(finger==='Thumb')line(hand.wrist,chain[0],.021);for(let i=0;i<chain.length-1;i++){line(chain[i],chain[i+1],finger==='Thumb'?.018:.014);const p=project(chain[i]);layers.push({z:p[2]+.0001,svg:`<circle cx="${n(p[0])}" cy="${n(p[1])}" r="${n(.006*scale)}" fill="#c98d70"/>`});}}
+ return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Enlarged ${side.toLowerCase()} hand diagram"><rect width="480" height="320" rx="12" fill="${contrast?'#172b35':'#e7ede3'}"/>${layers.sort((a,b)=>a.z-b.z).map(l=>l.svg).join('')}<text x="18" y="29" fill="${contrast?'#f4f8ed':'#193d34'}" font-family="sans-serif" font-size="15">Signer’s ${side.toUpperCase()} hand</text></svg>`;
 }

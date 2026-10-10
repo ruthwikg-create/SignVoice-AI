@@ -1,0 +1,17 @@
+{
+  "name": "Eva",
+  "repository": "https://github.com/upf-gti/SignON-realizer",
+  "commit": "61588cee7b5cae305a9d3eb3bbe52579e5e5805e",
+  "sourcePath": "data/EvaHandsEyesFixed.glb",
+  "license": "MIT",
+  "sourceSha256": "938072786baa867fdd558ca03f2f49067b0c6355be9fdd07287fce59bd8e3a17",
+  "changes": [
+    "Keep 15 facial channels used for signing; remove unused morph buffers and animations",
+    "Resize textures to at most 1024 pixels; convert normal/opaque textures to JPEG and hair to 512px palette PNG",
+    "Gzip bundle for local browser DecompressionStream loading",
+    "Application orients the bind skeleton upright, retargets bone rotations and corrects wrists with IK",
+    "Application tints the shirt dark blue and renders isolated hand meshes from the same skin weights"
+  ],
+  "downloadBytes": 2279613,
+  "signerValidation": false
+}

@@ -2,6 +2,13 @@
 
 The original SignVoice AI application source is supplied under the MIT license in `LICENSE`. Upstream model/runtime assets retain their own terms.
 
+## Textured human model and 3D renderer (v1.6)
+
+- Eva model: UPF GTI / SignON-realizer, `data/EvaHandsEyesFixed.glb`, pinned commit `61588cee7b5cae305a9d3eb3bbe52579e5e5805e`. Source: https://github.com/upf-gti/SignON-realizer . MIT license, copyright 2022 evalls; full license and provenance included in `dist/models/signer/`.
+- Adaptations: keep 15 facial morph channels, remove unused data, resize/re-encode textures, gzip the local model bundle. The renderer normalizes the bind skeleton, retargets motion with wrist IK, tints the shirt dark blue, and isolates the same weighted hand surfaces for close-up cameras. The mesh does not add a new language or translation model, and is not a recording of a human signer.
+- Three.js **0.180.0**, upstream tag `r180`: https://github.com/mrdoob/three.js/tree/r180 . MIT license, copyright three.js authors; full license and provenance in `dist/vendor/three/`. The minified core/module files are unmodified. `GLTFLoader.js` and `BufferGeometryUtils.js` have local import paths identified in their headers.
+- Shipped file integrity hashes are in `dist/assets.sha256`. The original 29 MB asset is not shipped; the gzip download is approximately 2.3 MB.
+
 ## Experimental ASL character motion engine (v1.5)
 
 - Upstream: `nirholas/three.ws`, `packages/sign-language`, pinned commit `66624fbe184f50ae55f89fa01537d99497984cfd`.
