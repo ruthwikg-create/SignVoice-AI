@@ -2,6 +2,15 @@
 
 The original SignVoice AI application source is supplied under the MIT license in `LICENSE`. Upstream model/runtime assets retain their own terms.
 
+## Experimental ASL character motion engine (v1.5)
+
+- Upstream: `nirholas/three.ws`, `packages/sign-language`, pinned commit `66624fbe184f50ae55f89fa01537d99497984cfd`.
+- Source: https://github.com/nirholas/three.ws/tree/66624fbe184f50ae55f89fa01537d99497984cfd/packages/sign-language
+- License: Apache License, Version 2.0; copyright 2026 nirholas. Full license and upstream README are included in `dist/vendor/sign-avatar/` with `PROVENANCE.json`.
+- Vendored modules: canonical rest skeleton, finger handshapes/fingerspelling, sign rig, clip timeline, dictionary and speech compiler. SignVoice modifies `sign-speech.js` to use stride 1 for scalar facial tracks when joining clips. The change is identified in the file header and provenance record.
+- Original application motion overrides for WANT, GO and HOME are informed by ASL University / Lifeprint descriptions: https://www.lifeprint.com/asl101/pages-signs/w/want.htm , https://www.lifeprint.com/asl101/pages-signs/g/go.htm , https://www.lifeprint.com/asl101/pages-signs/h/home.htm . These source links are available during playback. No source videos, images or lesson text are bundled for these animations.
+- The motion engine is an experimental English-order lexical animation system, not a trained sentence translator. Neither its signs nor SignVoice's character/overrides have been validated by Deaf signers.
+
 ## MediaPipe Tasks Vision
 
 - Package: `@mediapipe/tasks-vision`, version **0.10.21**.

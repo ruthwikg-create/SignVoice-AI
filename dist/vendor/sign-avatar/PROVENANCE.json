@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/nirholas/three.ws",
+  "commit": "66624fbe184f50ae55f89fa01537d99497984cfd",
+  "license": "Apache-2.0",
+  "files": [
+    "src/animation-canonical-rest.js",
+    "src/fingerspelling.js",
+    "src/sign-clip.js",
+    "src/sign-dictionary.js",
+    "src/sign-handshapes.js",
+    "src/sign-rig.js",
+    "src/sign-speech.js"
+  ],
+  "changes": "sign-speech.js patched so number (facial) tracks use stride 1. Other source modules copied without changes. SignVoice adds its own renderer, safe lookup and GO/HOME/WANT definitions.",
+  "status": "Experimental ASL lexical animation; no signer validation performed by SignVoice."
+}

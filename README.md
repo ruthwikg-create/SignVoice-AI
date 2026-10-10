@@ -1,4 +1,10 @@
-# SignVoice AI — World Languages v1.4
+# SignVoice AI — Animated Character v1.5
+
+## Animated character practice
+
+Open **Text → signs**, choose **American Sign Language**, and type **I want to go home**. The articulated character animates I, WANT, GO and HOME; TO is explicitly fingerspelled. Play/pause, replay, word skipping, 0.5×–1.25× speed, looping and three viewing angles are included. Unknown words use ASL fingerspelling, with the fallback labeled. The renderer runs locally without a paid API or runtime npm dependencies.
+
+**Experimental:** 37 word labels including aliases, plus ASL letters and digits. This is authored motion playback, not a generative AI model or complete sentence translator. It retains English word order, does not produce full ASL grammar, and has not been validated by Deaf signers. Other languages continue to use their own reference lessons; ASL animation is never substituted. See [Animated character](docs/ANIMATED_CHARACTER.md).
 
 ## World Languages learning edition
 
