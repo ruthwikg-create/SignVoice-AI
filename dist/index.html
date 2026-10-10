@@ -25,7 +25,7 @@
       <button class="nav-button" data-view="settings"><span aria-hidden="true">⚙</span> Voice & settings</button>
       <button class="nav-button" data-view="guide"><span aria-hidden="true">ⓘ</span> Getting started</button>
     </nav>
-    <div class="sidebar-bottom"><div class="local-dot"></div><strong>Your camera stays here.</strong><p>Recognition runs on your device. Reference videos load from their sources.</p><span class="version">LEARNING EDITION · V1.7.1</span></div>
+    <div class="sidebar-bottom"><div class="local-dot"></div><strong>Your camera stays here.</strong><p>Recognition runs on your device. Reference videos load from their sources.</p><span class="version">LEARNING EDITION · V1.8.0</span></div>
   </aside>
   <main id="main-content">
     <header class="topbar"><span><span class="tiny-dot"></span> A little technology. A lot more connection.</span><span class="prototype-tag">Isolated sign prototype</span></header>
@@ -74,7 +74,8 @@
         <p class="avatar-notice">Experimental motion practice. Bundled motions are ASL; other sign languages need their own sourced motion packs. Full phrases can use an authored sequence; word-by-word playback does not generate sign-language grammar. Review animations with a fluent Deaf signer.</p>
         <p id="avatar-language-note" class="notice" hidden></p>
         <div id="avatar-visual-options" class="avatar-visual-options">
-          <label>Character<select id="avatar-render-style"><option value="human">Textured 3D human</option><option value="lightweight">Lightweight diagram</option></select></label>
+          <label>Signer<select id="avatar-person"><option value="male">Male · realistic 3D</option><option value="female">Female · realistic 3D</option></select></label>
+          <label>View<select id="avatar-render-style"><option value="human">Textured 3D human</option><option value="lightweight">Lightweight diagram</option></select></label>
           <label>Focus<select id="avatar-focus"><option value="body">Face, arms &amp; hands</option><option value="hands">Both hands</option><option value="right">Signer’s right hand</option><option value="left">Signer’s left hand</option></select></label>
           <label>Angle<select id="avatar-angle"><option value="0">Front</option><option value="-35">Left angle</option><option value="35">Right angle</option><option value="-65">Left side</option><option value="65">Right side</option></select></label>
           <label>Zoom<input id="avatar-zoom" type="range" min="0.8" max="1.5" step="0.05" value="1" aria-label="Character zoom"></label>
@@ -87,7 +88,7 @@
           <div class="avatar-player-controls"><button id="avatar-play" class="primary" disabled>▷ Play character</button><button id="avatar-replay" class="secondary" disabled>↻ Replay</button><button id="avatar-prev" class="secondary" disabled>← Previous word</button><button id="avatar-next" class="secondary" disabled>Next word →</button><button id="avatar-frame-prev" class="secondary" disabled>− One frame</button><button id="avatar-frame-next" class="secondary" disabled>+ One frame</button><label>Speed<select id="avatar-speed"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="0.75" selected>0.75×</option><option value="1">1×</option><option value="1.25">1.25×</option></select></label><label class="check-label"><input id="avatar-loop" type="checkbox">Loop sequence</label><label class="check-label"><input id="avatar-repeat-word" type="checkbox">Repeat this word</label><label class="check-label"><input id="avatar-pause-word" type="checkbox">Pause after each word</label></div>
           <label for="avatar-seek" class="sr-only">Animation timeline</label><input id="avatar-seek" type="range" min="0" max="0" step="0.01" value="0" disabled><div id="avatar-time" class="caption">0.0 / 0.0 s</div>
           <div id="avatar-words" class="avatar-words" aria-label="Animated words"></div><p id="avatar-coverage" class="caption" role="status"></p><p id="avatar-description" class="avatar-description"></p>
-          <div class="avatar-practice-actions"><button id="avatar-mark-practiced" class="secondary" disabled>✓ Mark sequence practiced</button><button id="avatar-reference-mode" class="text-button">Compare with source demonstrations ↗</button></div>
+          <div class="avatar-practice-actions"><button id="avatar-mark-practiced" class="secondary" disabled>✓ Mark sequence practiced</button><button id="avatar-reference-mode" class="text-button">Watch this language’s source demonstrations ↗</button><button id="avatar-use-asl" class="secondary" hidden>Practice this text in ASL instead</button></div>
           <p class="caption">Use Space to play/pause and ← / → to inspect frames while the studio is focused. Match the signer’s named hand. A practiced count records your review, not verified signing accuracy.</p>
         </div>
         <section class="coach-panel" aria-labelledby="coach-heading">

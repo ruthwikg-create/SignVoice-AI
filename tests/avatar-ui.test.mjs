@@ -23,11 +23,13 @@ test('character controls reset on input/language changes and stop on reference/v
   get('avatar-reference-mode').onclick();assert.equal(get('avatar-panel').hidden,true);assert.equal(get('lesson-reference-grid').hidden,false);assert.equal(referenceHandoffs,1);
   get('lesson-display-mode').value='avatar';get('lesson-display-mode').onchange();assert.equal(callbacks.size,1);
   ui.onView('library');assert.equal(callbacks.size,0);
-  language='ISL';ui.invalidate();assert.equal(get('avatar-stage').hidden,false);assert.equal(get('lesson-reference-grid').hidden,false);assert.equal(get('avatar-words').children.length,0);assert.equal(get('avatar-play').disabled,true);assert.match(get('avatar-language-note').textContent,/No ASL/);
-  ui.build();assert.equal(callbacks.size,0);
+  language='ISL';ui.invalidate();assert.equal(get('avatar-stage').hidden,false);assert.equal(get('lesson-reference-grid').hidden,false);assert.equal(get('avatar-words').children.length,0);assert.equal(get('avatar-play').disabled,false);assert.match(get('avatar-language-note').textContent,/No ASL/);
+  get('avatar-play').onclick();assert.equal(callbacks.size,0);assert.equal(get('avatar-words').children.length,0);assert.equal(get('avatar-use-asl').hidden,false);assert.match(get('avatar-coverage').textContent,/No animation/);
   language='ASL';get('lesson-text').value='home';ui.build();assert.equal(callbacks.size,1);
-  get('lesson-text').input();assert.equal(callbacks.size,0);assert.equal(get('avatar-play').disabled,true);assert.equal(get('avatar-seek').max,'0');
-  ui.build();document.hidden=true;events.get('visibilitychange')();assert.equal(callbacks.size,0);
+  get('lesson-text').input();assert.equal(callbacks.size,0);assert.equal(get('avatar-play').disabled,false);assert.equal(get('avatar-seek').max,'0');
+  get('avatar-play').onclick();assert.equal(callbacks.size,1);assert.equal(get('avatar-words').children.length,1);
+  get('lesson-text').value='';get('lesson-text').input();assert.equal(get('avatar-play').disabled,true);assert.equal(callbacks.size,0);
+  get('lesson-text').value='home';get('lesson-text').input();get('avatar-play').onclick();document.hidden=true;events.get('visibilitychange')();assert.equal(callbacks.size,0);
   get('avatar-render-style').value='lightweight';get('avatar-render-style').onchange();assert.equal(get('avatar-hand-labels').hidden,true);assert.ok(get('avatar-stage').innerHTML.includes('Enlarged right hand'));
   get('avatar-render-style').value='human';get('avatar-render-style').onchange();assert.equal(get('avatar-stage').children[0],canvas);
  }finally{for(const [key,value] of Object.entries(originals)){if(value===undefined)delete globalThis[key];else globalThis[key]=value;}}
@@ -57,8 +59,22 @@ test('starting in a language without motions loads a visible resting human for e
   get('lesson-display-mode').value='avatar';get('avatar-render-style').value='human';get('avatar-speed').value='1';get('lesson-text').value='Hello How are you';
   const ui=createAvatarUI({getLanguage:()=>language,getText:()=>get('lesson-text').value,toast:assert.fail,createStage:async()=>{loads++;await loaded;get('avatar-stage').replaceChildren(canvas);return {canvas,render(pose){rendered.push(pose);}};}});
   ui.onView('learn');assert.equal(loads,1);assert.equal(get('avatar-stage').hidden,false);assert.match(get('avatar-stage').innerHTML,/svg/);ui.build();assert.match(get('avatar-coverage').textContent,/No animation/);
-  for(const profile of LANGUAGES){language=profile.id;ui.invalidate();assert.equal(get('avatar-stage').hidden,false,language);assert.equal(get('avatar-visual-options').hidden,false,language);assert.equal(get('avatar-controls').hidden,false,language);assert.equal(get('avatar-play').disabled,true,language);assert.equal(get('lesson-reference-grid').hidden,false,language);assert.equal(callbacks.size,0,language);assert.match(get('avatar-subtitle').textContent,/at rest/,language);}
-  language='ILS';ui.invalidate();finish();await Promise.resolve();await Promise.resolve();assert.equal(loads,1);assert.equal(get('avatar-stage').children[0],canvas);assert.equal(get('avatar-hand-labels').hidden,false);assert.ok(rendered.length);assert.match(get('avatar-subtitle').textContent,/International Sign/);assert.equal(get('avatar-play').disabled,true);
+  for(const profile of LANGUAGES){language=profile.id;ui.invalidate();assert.equal(get('avatar-stage').hidden,false,language);assert.equal(get('avatar-visual-options').hidden,false,language);assert.equal(get('avatar-controls').hidden,false,language);assert.equal(get('avatar-play').disabled,false,language);assert.equal(get('lesson-reference-grid').hidden,false,language);assert.equal(callbacks.size,0,language);assert.match(get('avatar-subtitle').textContent,/at rest/,language);}
+  language='ILS';ui.invalidate();finish();await Promise.resolve();await Promise.resolve();assert.equal(loads,1);assert.equal(get('avatar-stage').children[0],canvas);assert.equal(get('avatar-hand-labels').hidden,false);assert.ok(rendered.length);assert.match(get('avatar-subtitle').textContent,/International Sign/);assert.equal(get('avatar-play').disabled,false);
   get('avatar-focus').value='left';get('avatar-focus').onchange();assert.ok(rendered.length>1);get('avatar-reference-mode').onclick();assert.equal(get('avatar-panel').hidden,true);assert.equal(get('lesson-reference-grid').hidden,false);
+ }finally{for(const [k,v] of Object.entries(originals)){if(v===undefined)delete globalThis[k];else globalThis[k]=v;}}
+});
+
+test('switching male/female during model loading discards the stale model and preserves a paused sequence',async()=>{
+ const keys=['document','requestAnimationFrame','cancelAnimationFrame','localStorage','matchMedia'],originals=Object.fromEntries(keys.map(k=>[k,globalThis[k]])),elements=new Map(),frames=new Map(),loads=[],disposed=[];let serial=0;
+ const element=()=>({value:'',innerHTML:'',children:[],dataset:{},classList:{toggle(){}},append(...items){this.children.push(...items);},replaceChildren(...items){this.children=[...items];},contains(item){return this.children.includes(item);},setAttribute(){},addEventListener(name,fn){this[name]=fn;}}),get=id=>{if(!elements.has(id))elements.set(id,element());return elements.get(id);};
+ globalThis.document={getElementById:get,createElement:element,querySelectorAll:()=>get('avatar-words').children,addEventListener(){}};globalThis.localStorage={getItem:()=>null};globalThis.requestAnimationFrame=fn=>{frames.set(++serial,fn);return serial;};globalThis.cancelAnimationFrame=id=>frames.delete(id);globalThis.matchMedia=()=>({matches:true});
+ try{
+  get('lesson-display-mode').value='avatar';get('avatar-render-style').value='human';get('avatar-person').value='male';get('avatar-speed').value='1';get('lesson-text').value='home';
+  const ui=createAvatarUI({getLanguage:()=> 'ASL',getText:()=>get('lesson-text').value,toast:assert.fail,createStage:(container,{character})=>new Promise(resolve=>loads.push({character,finish(){const canvas=element();container.replaceChildren(canvas);resolve({canvas,render(){},dispose(){disposed.push(character);}});}}))});
+  ui.onView('learn');assert.deepEqual(loads.map(x=>x.character),['male']);get('avatar-person').value='female';get('avatar-person').onchange();assert.equal(loads.length,1);
+  loads[0].finish();await Promise.resolve();assert.deepEqual(disposed,['male']);assert.deepEqual(loads.map(x=>x.character),['male','female']);loads[1].finish();await Promise.resolve();
+  assert.equal(get('avatar-hand-labels').hidden,false);get('avatar-play').onclick();assert.equal(get('avatar-words').children.length,1);assert.equal(frames.size,1,'manual Play overrides reduced-motion autoplay suppression');
+  get('avatar-seek').value='.3';get('avatar-seek').oninput();get('avatar-person').value='male';get('avatar-person').onchange();assert.equal(frames.size,0);assert.deepEqual(disposed,['male','female']);assert.equal(get('avatar-seek').value,'0.3');assert.equal(get('avatar-words').children.length,1);assert.equal(loads[2].character,'male');loads[2].finish();await Promise.resolve();get('avatar-play').onclick();assert.equal(frames.size,1);
  }finally{for(const [k,v] of Object.entries(originals)){if(v===undefined)delete globalThis[k];else globalThis[k]=v;}}
 });

@@ -1,0 +1,17 @@
+{
+  "name": "VALID Asian_M_1_Casual",
+  "repository": "https://github.com/c-frame/valid-avatars-glb",
+  "commit": "c4719df7a2b60a96cc7f56d67e247674b68c4ea7",
+  "sourcePath": "avatars/Asian/Asian_M_1_Casual.glb",
+  "originalRepository": "https://github.com/Google/valid-avatars",
+  "license": "MIT",
+  "sourceSha256": "92e8f1289382042ea8977a113682b9e8f86604e0ec696d63de634581059ee1a2",
+  "changes": [
+    "Offline meshopt decompression; no runtime decoder required",
+    "Retain 18 facial channels and lower-jaw channel; remove unused morph channels",
+    "Convert embedded textures to 1024px JPEG; remove WebP dependency",
+    "Gzip local GLB; same rotation retargeting, wrist IK and synchronized hand close-ups as female signer"
+  ],
+  "downloadBytes": 1708242,
+  "signerValidation": false
+}

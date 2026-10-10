@@ -1,12 +1,12 @@
-# SignVoice AI — Human Signing Studio v1.7.1
+# SignVoice AI — Human Signing Studio v1.8.0
 
 ## Human signing studio
 
-Open **Text → signs**, choose **American Sign Language**, and type **I want to go home**. A textured 3D human replaces the flat character as the default view. Both hands have synchronized enlarged views using the same model, bones, skin weights and textures. Focus on either hand, see five angles, zoom, switch background contrast, expand the studio, slow down to 0.25×, inspect individual frames, repeat one word or pause after every word.
+Open **Text → signs**, choose **American Sign Language**, and type **I want to go home**. Press **Build & play** directly after typing. Choose **Male** (default) or **Female** under Signer; both are textured 3D models. Switching character pauses playback and retains the sequence and timeline. Both hands have synchronized enlarged views using the same model, bones, skin weights and textures. Focus on either hand, see five angles, zoom, switch background contrast, expand the studio, slow down to 0.25×, inspect individual frames, repeat one word or pause after every word.
 
 Save up to 20 practice phrases on this device and mark sequences reviewed. Counts are self-reported practice, not recognition accuracy. Space plays/pauses and arrow keys inspect frames when the studio has keyboard focus. Reduced-motion preferences prevent autoplay. A labeled lightweight hand view is available when 3D graphics cannot load.
 
-The human model comes from SignON / UPF GTI under its MIT license. Its optimized download is about 2.3 MB, with vendored Three.js rendering modules. It loads only when the signing studio is opened, requires WebGL 2 and a modern browser, and can be cached after first use. No paid avatar API or runtime npm installation is required.
+The female model comes from SignON / UPF GTI; the male model comes from the Google/UCF VALID library via c-frame. Both retain their MIT licenses and pinned provenance. Their compressed downloads are approximately 2.3 MB and 1.7 MB, respectively, with vendored Three.js rendering modules. Only the selected model loads. These are realistic textured meshes, not photorealistic recordings. It loads only when the signing studio is opened, requires WebGL 2 and a modern browser, and can be cached after first use. No paid avatar API or runtime npm installation is required.
 
 **Experimental:** 37 ASL word labels including aliases, plus letters and digits. This is authored motion playback, not generative AI or a complete sentence translator. The example animates I, WANT, GO and HOME while explicitly fingerspelling TO. It retains English word order, does not produce complete ASL grammar, and needs Deaf signer validation. Other languages use their own reference lessons or personal sourced motion packs; ASL motions are never substituted. See [Human signing studio](docs/ANIMATED_CHARACTER.md).
 
@@ -16,7 +16,7 @@ The human model comes from SignON / UPF GTI under its MIT license. Its optimized
 
 **Language motion studio** authors sourced word or full-phrase animations in any of the 87 separate sign-language profiles, including Indian ISL and International Sign (`ILS`). Set each hand's shape, location, offsets, finger/palm direction, face setting and head movement; inspect a pose, add steps, preview, then save. Import/export packs, retain source links and optional review attribution, and store up to 200 motions on this device. Native-script labels are supported. An exact full-phrase motion takes priority over separate word labels. Missing motions in languages other than ASL stop animation and keep reference practice available. Author-supplied reviewer names are displayed as attribution, not independent certification.
 
-**The human viewer stays visible for every language**, including profiles with no motion pack. It displays an explicitly labeled resting character, leaves playback disabled, and keeps that language’s source lessons available. Loading or switching languages does not hide the model.
+**The human viewer stays visible for every language**, including profiles with no motion pack. It displays an explicitly labeled resting character and keeps that language’s source lessons available. Build & play is enabled for nonempty text; without motions it explains the missing data, rather than inventing a sequence. An explicit ASL practice button is available for Latin text; clicking it changes the selected language. Loading or switching languages does not hide the model.
 
 **Bundled coverage has not expanded to all languages.** Only the experimental ASL dictionary ships with motions. ISL, International Sign and the other profiles require their own reviewed motion data or manual authoring; the editor does not infer gestures from typed words or capture a reference video. Full-phrase playback plays an authored sequence; it does not generate a grammatical translation. See [Motion packs and narration](docs/MOTION_PACKS.md).
 
@@ -194,6 +194,8 @@ Use the actual session IDs from your exported recordings. Every class needs >=3 
 | `docs/REFERENCE_LIBRARY.md` | Lesson sources, coverage and reference-import format |
 
 ## Troubleshooting
+
+- **Character will not play:** in Text → signs choose ASL, type `I want to go home`, and press **Build & play**. For other profiles import their sourced motions or use **Watch this language’s source demonstrations**. A visible resting character does not mean its language has motion data. **Signer** switches male/female; **View** switches 3D/diagram. If 3D loading fails the diagram player remains available.
 
 - **Camera denied:** allow camera permission in the browser site settings, then retry. Check Windows Settings → Privacy & security → Camera → allow desktop apps.
 - **Camera busy:** close Zoom, Teams or other webcam applications. No camera found means a webcam is disconnected or disabled.

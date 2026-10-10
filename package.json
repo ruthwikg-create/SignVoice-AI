@@ -1,6 +1,6 @@
 {
   "name": "signvoice-ai",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "private": true,
   "type": "module",
   "description": "Human signing studio with language-specific sourced motion packs, multilingual voice coaching and international references",

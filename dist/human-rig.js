@@ -2,7 +2,7 @@ import * as THREE from './vendor/three/three.module.min.js';
 import {CANONICAL_REST} from './vendor/sign-avatar/animation-canonical-rest.js';
 import {restWorld,Pose} from './vendor/sign-avatar/sign-rig.js';
 
-const FACE_MAP={eyeBlinkLeft:['Blink_Left'],eyeBlinkRight:['Blink_Right'],eyeSquintLeft:['Squint_Left'],eyeSquintRight:['Squint_Right'],browInnerUp:['BrowsUp_Left','BrowsUp_Right'],browOuterUpLeft:['BrowsUp_Left'],browOuterUpRight:['BrowsUp_Right'],browDownLeft:['BrowsDown_Left'],browDownRight:['BrowsDown_Right'],mouthSmileLeft:['Smile_Left'],mouthSmileRight:['Smile_Right'],mouthFrownLeft:['Frown_Left'],mouthFrownRight:['Frown_Right'],jawOpen:['Jaw_Down'],mouthPucker:['MouthNarrow_Left','MouthNarrow_Right']};
+const FACE_MAP={eyeBlinkLeft:['Blink_Left','h_expressions.LeyeClose_h'],eyeBlinkRight:['Blink_Right','h_expressions.ReyeClose_h'],eyeSquintLeft:['Squint_Left','h_expressions.Lsquint_h'],eyeSquintRight:['Squint_Right','h_expressions.Rsquint_h'],browInnerUp:['BrowsUp_Left','h_expressions.LbrowUp_h','h_expressions.LLbrowUp_h','BrowsUp_Right','h_expressions.RbrowUp_h','h_expressions.RRbrowUp_h'],browOuterUpLeft:['BrowsUp_Left','h_expressions.LbrowUp_h','h_expressions.LLbrowUp_h'],browOuterUpRight:['BrowsUp_Right','h_expressions.RbrowUp_h','h_expressions.RRbrowUp_h'],browDownLeft:['BrowsDown_Left','h_expressions.LbrowDown_h','h_expressions.LLbrowDown_h'],browDownRight:['BrowsDown_Right','h_expressions.RbrowDown_h','h_expressions.RRbrowDown_h'],mouthSmileLeft:['Smile_Left','h_expressions.LsmileClose_h'],mouthSmileRight:['Smile_Right','h_expressions.RsmileClose_h'],mouthFrownLeft:['Frown_Left','h_expressions.LmouthSad_h'],mouthFrownRight:['Frown_Right','h_expressions.RmouthSad_h'],jawOpen:['Jaw_Down','h_expressions.MouthOpen_h','h_teeth.t_MouthOpen_h'],mouthPucker:['MouthNarrow_Left','h_expressions.Kiss_h','MouthNarrow_Right']};
 const vector=()=>new THREE.Vector3(),quaternion=()=>new THREE.Quaternion();
 export function canonicalBoneName(name){return name.replace(/^mixamorig[_:]/,'');}
 export function createHumanRig(model){
@@ -48,7 +48,9 @@ export function createHumanRig(model){
    const eligible=new Uint8Array(skin.count);for(let vertex=0;vertex<skin.count;vertex++){let weight=0;for(let j=0;j<4;j++)if(handBones.has(skin.getComponent(vertex,j)))weight+=weights.getComponent(vertex,j);eligible[vertex]=weight>.45?1:0;}
    const indices=[];for(let i=0;i<index.count;i+=3){const a=index.getX(i),b=index.getX(i+1),c=index.getX(i+2);if(eligible[a]+eligible[b]+eligible[c]>=2)indices.push(a,b,c);}
    if(!indices.length)continue;
-   const geometry=mesh.geometry.clone();geometry.setIndex(indices);const copy=new THREE.SkinnedMesh(geometry,mesh.material);copy.name='closeup-'+side;copy.position.copy(mesh.position);copy.quaternion.copy(mesh.quaternion);copy.scale.copy(mesh.scale);copy.bindMode=mesh.bindMode;copy.bind(mesh.skeleton,mesh.bindMatrix);copy.layers.set(layer);copy.frustumCulled=false;copy.morphTargetInfluences=mesh.morphTargetInfluences;mesh.parent.add(copy);closeups.push(copy);
+   // Share attributes directly: cloning interleaved sparse morph buffers can
+   // alias their cache keys and corrupt quantized facial deltas.
+   const geometry=new THREE.BufferGeometry();for(const [key,attribute] of Object.entries(mesh.geometry.attributes))geometry.setAttribute(key,attribute);geometry.morphAttributes=mesh.geometry.morphAttributes;geometry.morphTargetsRelative=mesh.geometry.morphTargetsRelative;geometry.setIndex(indices);const copy=new THREE.SkinnedMesh(geometry,mesh.material);copy.name='closeup-'+side;copy.position.copy(mesh.position);copy.quaternion.copy(mesh.quaternion);copy.scale.copy(mesh.scale);copy.bindMode=mesh.bindMode;copy.bind(mesh.skeleton,mesh.bindMatrix);copy.layers.set(layer);copy.frustumCulled=false;copy.morphTargetInfluences=mesh.morphTargetInfluences;mesh.parent.add(copy);closeups.push(copy);
   }
  }
  apply(source);

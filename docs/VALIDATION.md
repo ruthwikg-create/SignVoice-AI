@@ -37,3 +37,9 @@
 44 automated tests passed. The new checks cover every requested profile, ambiguous abbreviations, language-specific alphabet provenance, strict provider URL validation, Vimeo imports, local-video sentence matching, missing-word preservation, safe image MIME/size bounds, Chinese/Japanese segmentation, and verified-letter spelling without cross-language substitution. The syntax, HTML IDs, catalog provenance, model/WASM, offline assets and publishing checks also passed.
 
 Physical webcam, browser rendering, speech synthesis, provider playback, local media playback, automatic advance, and PWA installation remain unverified in this environment. This release adds a learning player and resource coverage, not universal recognition or grammatical sentence translation.
+
+## v1.8 male signer and playback repair
+
+82 automated tests passed, including CPU loading of both shipped models, complete finger skeletons, finite retargeting of all bundled labels, wrist reach, shared hand surfaces, facial morph channels, direct Play after typing, empty-text disabling, unsupported-language handling, character switching during asynchronous loading, and manual playback with reduced-motion preference. Asset hashes and packaged GLB structure pass `npm run check`. A textured CPU render of the posed male mesh was inspected as an asset review, not a browser screenshot.
+
+Actual browser WebGL rendering, audible speech, source playback, physical webcam, Deaf signer validation, and exhaustive word/sentence accuracy remain unverified. The new male model adds no language motions. ISL/International Sign and other profiles still need their own sourced motion packs; no universal generative translator is included.

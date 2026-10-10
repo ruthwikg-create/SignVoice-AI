@@ -3,7 +3,7 @@ import {GLTFLoader} from './vendor/three/GLTFLoader.js';
 import {createHumanRig} from './human-rig.js';
 import {cameraForPoints} from './avatar-camera.js';
 
-export async function createHumanStage(container,{onStatus=()=>{},onFailure=()=>{}}={}){
+export async function createHumanStage(container,{character='male',onStatus=()=>{},onFailure=()=>{}}={}){
  if(typeof DecompressionStream!=='function')throw Error('This browser cannot load the compressed human model.');
  const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,powerPreference:'low-power'});
  renderer.setPixelRatio(Math.min(globalThis.devicePixelRatio||1,2));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.25;renderer.autoClear=false;
@@ -32,7 +32,8 @@ export async function createHumanStage(container,{onStatus=()=>{},onFailure=()=>
  }
  function dispose(){if(disposed)return;disposed=true;observer?.disconnect();rig?.dispose();if(rig)rig.model.traverse(o=>{if(o.isMesh){o.geometry.dispose();for(const material of Array.isArray(o.material)?o.material:[o.material]){for(const value of Object.values(material))if(value?.isTexture)value.dispose();material.dispose();}}});renderer.dispose();renderer.domElement.remove();}
  try{
-  onStatus('Loading textured signer…');const response=await fetch(new URL('./models/signer/eva.glb.gz',import.meta.url));if(!response.ok||!response.body)throw Error('The human model could not be downloaded.');
+  const male=character==='male',modelPath=male?'./models/signer/male.glb.gz':'./models/signer/eva.glb.gz';
+  onStatus(`Loading ${male?'male':'female'} signer…`);const response=await fetch(new URL(modelPath,import.meta.url));if(!response.ok||!response.body)throw Error('The human model could not be downloaded.');
   const downloaded=await response.arrayBuffer(),signature=new Uint8Array(downloaded,0,2);
   // Some hosts decode .gz assets at the HTTP layer; accept either representation.
   const bytes=signature[0]===0x1f&&signature[1]===0x8b?await new Response(new Blob([downloaded]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer():downloaded;
@@ -42,7 +43,7 @@ export async function createHumanStage(container,{onStatus=()=>{},onFailure=()=>
   const resize=()=>{const rect=container.getBoundingClientRect();width=Math.max(320,Math.round(rect.width||960));height=Math.round(width*.77);renderer.setSize(width,height,false);if(lastPose)render(lastPose,lastOptions);};
   if(typeof ResizeObserver==='function'){observer=new ResizeObserver(resize);observer.observe(container);}resize();
   renderer.domElement.addEventListener('webglcontextlost',event=>{event.preventDefault();failed=true;onFailure('3D graphics paused. Showing the lightweight hand view.');});
-  onStatus('Textured 3D signer · synchronized enlarged hands');
+  onStatus(`Textured ${male?'male':'female'} 3D signer · synchronized enlarged hands`);
   return {render,dispose,rig,canvas:renderer.domElement};
  }catch(error){dispose();throw error;}
 }

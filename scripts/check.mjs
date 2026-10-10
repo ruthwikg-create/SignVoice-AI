@@ -20,7 +20,7 @@ const chart=await readFile(path.join(root,'dist/media/asl-alphabet.png'));if(!ch
 const world=JSON.parse(await readFile(path.join(root,'dist/catalog/world.json'),'utf8'));const {validateWorldCatalog}=await import('../dist/world-engine.js');validateWorldCatalog(world);
 const manifest=JSON.parse(await readFile(path.join(root,'dist/manifest.webmanifest'),'utf8'));for(const icon of manifest.icons)await stat(path.join(root,'dist',icon.src));
 validateReferenceCatalog(JSON.parse(await readFile(path.join(root,'dist/catalog/international.json'),'utf8')));
-const signer=gunzipSync(await readFile(path.join(root,'dist/models/signer/eva.glb.gz')));if(signer.readUInt32LE(0)!==0x46546c67||signer.readUInt32LE(8)!==signer.length)throw Error('Invalid human model');
+for(const name of ['eva','male']){const signer=gunzipSync(await readFile(path.join(root,`dist/models/signer/${name}.glb.gz`)));if(signer.readUInt32LE(0)!==0x46546c67||signer.readUInt32LE(8)!==signer.length)throw Error('Invalid human model: '+name);}
 for(const line of (await readFile(path.join(root,'dist/assets.sha256'),'utf8')).trim().split('\n')){const [hash,file]=line.split(/\s+/,2);const bytes=await readFile(path.join(root,'dist',file));if(createHash('sha256').update(bytes).digest('hex')!==hash)throw Error('Asset integrity mismatch: '+file);}
 console.log('Human model and asset hashes, world and international language catalog, PWA manifest, JavaScript syntax, UI element references, reference catalogs, alphabet chart and packaged model/WASM assets verified.');
 

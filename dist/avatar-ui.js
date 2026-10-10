@@ -9,14 +9,14 @@ import {PRACTICE_KEY,cleanPractice,savePhrase,recordPractice,advancePractice} fr
 
 const $=id=>document.getElementById(id);
 const CONTROL_IDS=['avatar-play','avatar-replay','avatar-prev','avatar-next','avatar-frame-prev','avatar-frame-next','avatar-mark-practiced'];
-export function createAvatarUI({getLanguage,getText,toast,onAvatarMode=()=>{},onReferenceMode=()=>{},createStage=async(container,callbacks)=>(await import('./avatar-human.js')).createHumanStage(container,callbacks)}){
+export function createAvatarUI({getLanguage,getText,toast,onAvatarMode=()=>{},onReferenceMode=()=>{},onBuildRequest=null,createStage=async(container,callbacks)=>(await import('./avatar-human.js')).createHumanStage(container,callbacks)}){
  let plan=null,time=0,playing=false,last=0,raf=null,previousWord=null,human=null,humanLoading=false,humanFailed=false,focusStart=null,marked=false;
  let previewPose=null,speaking=false,narrationEpoch=0,viewActive=false;
  const narration=createPracticeSpeech({getSegment:()=>currentSegment(),toast,onManual:()=>stop(),onCaption:text=>{$('coach-caption').textContent=text;}});
  const motionLibrary=createMotionLibrary({getLanguage,toast,onChange:()=>invalidate('Motion library updated. Rebuild your sequence.'),onPreview:(text,language,motions)=>{if(language!==getLanguage())return;mode.value='avatar';$('lesson-text').value=text;build(motions);},onPose:phase=>{invalidate('Draft pose preview. This is an authored pose, not a verified sign.');previewPose=posePhase(phase);mode.value='avatar';refreshMode();ensureHuman();draw();}});
  let practice;try{practice=cleanPractice(JSON.parse(localStorage.getItem(PRACTICE_KEY)));}catch{practice=cleanPractice(null);}
  const stage=$('avatar-stage'),mode=$('lesson-display-mode'),range=$('avatar-seek');
- function stop(){speaking=false;narrationEpoch++;narration.stop();playing=false;cancelAnimationFrame(raf);raf=null;last=0;$('avatar-play').textContent='▷ Play character';}
+ function stop(){speaking=false;narrationEpoch++;narration.stop();playing=false;cancelAnimationFrame(raf);raf=null;last=0;$('avatar-play').textContent=plan?'▷ Play character':'▷ Build & play';}
  function persist(){try{localStorage.setItem(PRACTICE_KEY,JSON.stringify(practice));}catch{toast('Device storage is unavailable. This phrasebook lasts until you close the page.');}}
  function refreshPhrasebook(){
   $('avatar-saved-phrases').replaceChildren();$('avatar-progress').textContent=`${practice.sessions} sequence(s) marked practiced · ${practice.reviewed.length} animated word label(s) reviewed`;
@@ -39,12 +39,13 @@ export function createAvatarUI({getLanguage,getText,toast,onAvatarMode=()=>{},on
    if(segment&&playing){const pending=narration.onSegment(segment);if(pending){speaking=true;last=0;const token=narrationEpoch;pending.finally(()=>{if(token===narrationEpoch){speaking=false;last=0;}});}}
   }
  }
+ function selectedCharacter(){return $('avatar-person').value==='female'?'female':'male';}
  async function ensureHuman(){
   if(human||humanLoading||humanFailed||$('avatar-render-style').value!=='human'||mode.value!=='avatar')return;
-  humanLoading=true;$('avatar-render-status').textContent='Loading textured human signer…';
-  try{human=await createStage(stage,{onStatus(message){$('avatar-render-status').textContent=message;},onFailure(message){humanFailed=true;human?.dispose();human=null;humanLoading=false;$('avatar-render-style').value='lightweight';$('avatar-render-status').textContent=message;refreshMode();draw();}});
-   humanLoading=false;if(human){refreshMode();if($('avatar-render-style').value!=='human')$('avatar-render-status').textContent='Lightweight diagram · enlarged hands';draw();}
-  }catch{humanLoading=false;humanFailed=true;$('avatar-render-style').value='lightweight';$('avatar-render-status').textContent='3D graphics are unavailable in this browser. Enlarged hand diagrams remain available; try hardware acceleration or another browser for the textured model.';refreshMode();draw();}
+  const character=selectedCharacter();humanLoading=true;$('avatar-render-status').textContent='Loading '+character+' signer…';
+  try{human=await createStage(stage,{character,onStatus(message){if(character===selectedCharacter())$('avatar-render-status').textContent=message;},onFailure(message){if(character!==selectedCharacter())return;humanFailed=true;human?.dispose();human=null;humanLoading=false;$('avatar-render-style').value='lightweight';$('avatar-render-status').textContent=message;refreshMode();draw();}});
+   humanLoading=false;if(character!==selectedCharacter()){human?.dispose();human=null;draw();ensureHuman();return;}if(human){refreshMode();if($('avatar-render-style').value!=='human')$('avatar-render-status').textContent='Lightweight diagram · enlarged hands';draw();}
+  }catch{humanLoading=false;if(character!==selectedCharacter()){ensureHuman();return;}humanFailed=true;$('avatar-render-style').value='lightweight';$('avatar-render-status').textContent='3D graphics are unavailable in this browser. Enlarged hand diagrams remain available; try hardware acceleration or another browser for the textured model.';refreshMode();draw();}
  }
  function currentSegment(){return activeAvatarSegment(plan,time)||plan?.segments.find(s=>time<s.end)||plan?.segments.at(-1);}
  function tick(now){
@@ -52,7 +53,7 @@ export function createAvatarUI({getLanguage,getText,toast,onAvatarMode=()=>{},on
   if(last&&!speaking){const next=advancePractice(plan,time,Math.min((now-last)/1000,.1)*Number($('avatar-speed').value),{repeatWord:$('avatar-repeat-word').checked,pauseWord:$('avatar-pause-word').checked,loop:$('avatar-loop').checked,focusStart});time=next.time;focusStart=next.focusStart;if(next.stop)stop();}
   if(playing)last=now;draw();if(playing)raf=requestAnimationFrame(tick);
  }
- function play(){if(!plan)return;if(time>=plan.clip.duration)time=0;else if($('avatar-pause-word').checked&&!$('avatar-repeat-word').checked){const segment=currentSegment();if(segment&&time>=segment.end-.002)time=plan.segments[plan.segments.indexOf(segment)+1]?.start??0;}playing=true;last=0;previousWord=null;focusStart=$('avatar-repeat-word').checked?currentSegment()?.start:null;$('avatar-play').textContent='Ⅱ Pause';raf=requestAnimationFrame(tick);}
+ function play(){if(!plan)return;cancelAnimationFrame(raf);if(time>=plan.clip.duration)time=0;else if($('avatar-pause-word').checked&&!$('avatar-repeat-word').checked){const segment=currentSegment();if(segment&&time>=segment.end-.002)time=plan.segments[plan.segments.indexOf(segment)+1]?.start??0;}playing=true;last=0;previousWord=null;focusStart=$('avatar-repeat-word').checked?currentSegment()?.start:null;$('avatar-play').textContent='Ⅱ Pause';raf=requestAnimationFrame(tick);}
  function motionSupported(){return getLanguage()==='ASL'||!!previewPose||plan?.language===getLanguage()||motionLibrary.get().some(m=>m.language===getLanguage());}
  function refreshMode(){
   motionLibrary.refresh();
@@ -61,16 +62,17 @@ export function createAvatarUI({getLanguage,getText,toast,onAvatarMode=()=>{},on
   for(const id of ['avatar-controls','avatar-stage','avatar-visual-options','avatar-render-status'])$(id).hidden=false;
   $('avatar-hand-labels').hidden=!human||$('avatar-render-style').value!=='human';$('avatar-language-note').hidden=supported;
   $('avatar-vocabulary-count').textContent=(getLanguage()==='ASL'?`${AVATAR_WORDS.length} bundled ASL labels · ASL letters and digits · `:'')+`${motionLibrary.get().filter(m=>m.language===getLanguage()).length} personal sourced motion(s) for ${languageName(getLanguage())}`;
+  $('avatar-use-asl').hidden=getLanguage()==='ASL'||!getText().trim()||/[^\x00-\x7F]/.test(getText());
   $('avatar-language-note').textContent=`The human character is visible, but no animations are loaded for ${languageName(getLanguage())}. It stays at rest. Watch this language’s source lessons below, or add its own sourced motion pack in Language motion studio. No ASL movements are substituted for this language.`;
   if(!avatar||!plan)stop();if(avatar&&supported&&(plan||previewPose))onAvatarMode();
   if(avatar&&viewActive)ensureHuman();
  }
- function invalidate(message='Text or language changed. Select Show me the signs to rebuild.'){
-  stop();$('coach-caption').textContent='';plan=null;previewPose=null;time=0;previousWord=null;focusStart=null;marked=false;range.max='0';$('avatar-words').replaceChildren();$('avatar-description').replaceChildren();for(const id of CONTROL_IDS)$(id).disabled=true;range.disabled=true;$('avatar-coverage').textContent=message;draw();refreshMode();
+ function invalidate(message='Text or language changed. Press Build & play to animate, or Show me the signs for source practice.'){
+  stop();$('coach-caption').textContent='';plan=null;previewPose=null;time=0;previousWord=null;focusStart=null;marked=false;range.max='0';$('avatar-words').replaceChildren();$('avatar-description').replaceChildren();for(const id of CONTROL_IDS)$(id).disabled=true;range.disabled=true;$('avatar-play').disabled=!getText().trim();$('avatar-play').textContent='▷ Build & play';$('avatar-coverage').textContent=message;draw();refreshMode();
  }
  function build(motions=motionLibrary.get()){
   invalidate('Preparing animation…');if(!motionSupported()&&!motions.some(m=>m.language===getLanguage())){
-   $('avatar-coverage').textContent=`No animation is available for this text in ${languageName(getLanguage())}. The character remains at rest; this language’s source practice is available below.`;refreshMode();draw();if(mode.value==='avatar')ensureHuman();return;
+   $('avatar-coverage').textContent=`No animation is available for this text in ${languageName(getLanguage())}. Watch this language’s source demonstrations or import its sourced motion pack. The character stays at rest.`;refreshMode();draw();if(mode.value==='avatar')ensureHuman();return;
   }
   try{const matched=matchMotionSequence(getText(),getLanguage(),motions);plan=matched.missing.length===0?compileMotionSequence(getText(),getLanguage(),motions):getLanguage()==='ASL'?compileAvatar(getText(),getLanguage(),{motions}):compileMotionSequence(getText(),getLanguage(),motions);time=0;previousWord=null;range.max=String(plan.clip.duration);range.disabled=false;for(const id of CONTROL_IDS)$(id).disabled=false;
    $('avatar-coverage').textContent=`${plan.signed.length} animated word(s) · ${plan.spelled.length} fingerspelled word(s)${plan.spelled.length?' ('+plan.spelled.join(', ')+')':''}. Input label order; sign-language sentence grammar is not generated. Personal motion review attribution is supplied by its author.`;
@@ -81,14 +83,16 @@ export function createAvatarUI({getLanguage,getText,toast,onAvatarMode=()=>{},on
  function loadPhrase(text,language='ASL'){$('lesson-language').value=language;$('lesson-language').dispatchEvent(new Event('change',{bubbles:true}));$('lesson-text').value=text;mode.value='avatar';$('build-lesson').click();}
  function stepFrame(direction){if(!plan)return;stop();time=Math.max(0,Math.min(plan.clip.duration,time+direction/15));draw();}
  mode.onchange=()=>{refreshMode();if(mode.value==='reference')onReferenceMode();else if(getText().trim())build();else ensureHuman();};
- $('avatar-play').onclick=()=>playing?stop():play();$('avatar-replay').onclick=()=>{if(!plan)return;stop();time=0;draw();play();};range.oninput=()=>{stop();time=Number(range.value);focusStart=null;draw();};
+ $('avatar-play').onclick=()=>{if(playing){stop();return;}if(!plan){if(onBuildRequest)onBuildRequest();else build();}if(plan&&!playing)play();};$('avatar-replay').onclick=()=>{if(!plan)return;stop();time=0;draw();play();};range.oninput=()=>{stop();time=Number(range.value);focusStart=null;draw();};
  for(const [id,direction] of [['avatar-prev',-1],['avatar-next',1]])$(id).onclick=()=>{if(!plan)return;stop();const index=plan.segments.findIndex(s=>time<s.end),next=direction===1?(index<0?plan.segments.length-1:Math.min(index+1,plan.segments.length-1)):(index<0?plan.segments.length-1:Math.max(index-1,0));time=plan.segments[next].start;focusStart=time;draw();};
  for(const [id,direction] of [['avatar-frame-prev',-1],['avatar-frame-next',1]])$(id).onclick=()=>stepFrame(direction);
  for(const id of ['avatar-angle','avatar-focus','avatar-contrast'])$(id).onchange=draw;$('avatar-zoom').oninput=draw;
  $('avatar-repeat-word').onchange=()=>{focusStart=$('avatar-repeat-word').checked?currentSegment()?.start:null;};
  $('avatar-render-style').onchange=()=>{if($('avatar-render-style').value==='human'){if(human){stage.replaceChildren(human.canvas);$('avatar-render-status').textContent='Textured 3D signer · synchronized enlarged hands';draw();}else{humanFailed=false;ensureHuman();}}else{stop();draw();$('avatar-render-status').textContent='Lightweight diagram · enlarged hands';}refreshMode();};
+ $('avatar-person').onchange=()=>{stop();human?.dispose();human=null;humanFailed=false;draw();ensureHuman();refreshMode();};
  $('avatar-fullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await $('avatar-panel').requestFullscreen();}catch{toast('Fullscreen is unavailable. Use hand focus and zoom to enlarge the motion.');}};
  $('avatar-studio').tabIndex=0;$('avatar-studio').addEventListener('keydown',event=>{if(event.target!==$('avatar-studio')||!plan)return;if(event.code==='Space'){event.preventDefault();playing?stop():play();}if(['ArrowLeft','ArrowRight'].includes(event.key)){event.preventDefault();stepFrame(event.key==='ArrowRight'?1:-1);}});
+ $('avatar-use-asl').onclick=()=>loadPhrase(getText(),'ASL');
  $('avatar-reference-mode').onclick=()=>{mode.value='reference';refreshMode();onReferenceMode();};$('avatar-example').onclick=()=>loadPhrase('I want to go home');
  $('avatar-save-phrase').onclick=()=>{try{practice=savePhrase(practice,getLanguage(),getText());persist();refreshPhrasebook();toast('Phrase saved on this device.');}catch(e){toast(e.message);}};
  $('avatar-mark-practiced').onclick=()=>{if(!plan||marked)return;practice=recordPractice(practice,plan);marked=true;persist();refreshPhrasebook();draw();};

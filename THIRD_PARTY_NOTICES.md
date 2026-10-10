@@ -2,6 +2,11 @@
 
 The original SignVoice AI application source is supplied under the MIT license in `LICENSE`. Upstream model/runtime assets retain their own terms.
 
+## Male signer (v1.8)
+
+- VALID `Asian_M_1_Casual`: Google/UCF VALID library, converted to GLB by c-frame. Source: https://github.com/c-frame/valid-avatars-glb at commit `c4719df7a2b60a96cc7f56d67e247674b68c4ea7`, path `avatars/Asian/Asian_M_1_Casual.glb`. MIT license, copyright 2022 Tiffany Do; full license and source hash are in `dist/models/signer/MALE_LICENSE` and `MALE_PROVENANCE.json`.
+- Adaptations: decode meshopt compression offline with upstream Meshoptimizer v0.25 (MIT), retain 18 facial channels plus the lower-jaw channel, convert embedded WebP to JPEG, and gzip the local bundle (about 1.7 MB). No Meshoptimizer code is shipped. The model shares the app’s retargeter and synchronized hand views. It supplies a visual surface, not additional vocabulary or a sign-language translation model.
+
 ## Textured human model and 3D renderer (v1.6)
 
 - Eva model: UPF GTI / SignON-realizer, `data/EvaHandsEyesFixed.glb`, pinned commit `61588cee7b5cae305a9d3eb3bbe52579e5e5805e`. Source: https://github.com/upf-gti/SignON-realizer . MIT license, copyright 2022 evalls; full license and provenance included in `dist/models/signer/`.
