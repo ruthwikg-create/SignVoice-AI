@@ -7,7 +7,7 @@ export async function createHumanStage(container,{onStatus=()=>{},onFailure=()=>
  if(typeof DecompressionStream!=='function')throw Error('This browser cannot load the compressed human model.');
  const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,powerPreference:'low-power'});
  renderer.setPixelRatio(Math.min(globalThis.devicePixelRatio||1,2));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.25;renderer.autoClear=false;
- renderer.domElement.setAttribute('role','img');renderer.domElement.setAttribute('aria-label','3D ASL signer with synchronized close-ups of the right and left hand');
+ renderer.domElement.setAttribute('role','img');renderer.domElement.setAttribute('aria-label','3D human signer with synchronized close-ups of the right and left hand');
  const scene=new THREE.Scene();scene.background=new THREE.Color('#e8ede8');
  const fill=new THREE.HemisphereLight(0xffffff,0x728178,2.6);fill.layers.enableAll();scene.add(fill);
  for(const [position,intensity] of [[[1,2.2,3],3.1],[[-2,1.6,1],1.8],[[0,2,-2],1.4]]){const light=new THREE.DirectionalLight(0xffffff,intensity);light.position.set(...position);light.layers.enableAll();scene.add(light);}

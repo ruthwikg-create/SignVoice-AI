@@ -32,3 +32,18 @@ test('character controls reset on input/language changes and stop on reference/v
   get('avatar-render-style').value='human';get('avatar-render-style').onchange();assert.equal(get('avatar-stage').children[0],canvas);
  }finally{for(const [key,value] of Object.entries(originals)){if(value===undefined)delete globalThis[key];else globalThis[key]=value;}}
 });
+
+test('personal ISL motion reaches the human viewer and voice guidance gates its clock without leaking to International Sign',async()=>{
+ const keys=['document','requestAnimationFrame','cancelAnimationFrame','localStorage','speechSynthesis','SpeechSynthesisUtterance'],originals=Object.fromEntries(keys.map(k=>[k,globalThis[k]])),elements=new Map(),callbacks=new Map(),utterances=[],messages=[];let serial=0,language='ISL';
+ const element=()=>({value:'',dataset:{},children:[],classList:{toggle(){}},append(...items){this.children.push(...items);},replaceChildren(...items){this.children=[...items];},setAttribute(){},addEventListener(name,fn){this[name]=fn;}}),get=id=>{if(!elements.has(id))elements.set(id,element());return elements.get(id);};
+ const data=new Map([['signvoice-motion-packs-v1',JSON.stringify({version:1,motions:[{language:'ISL',label:'घर',source:'https://example.org/fixture',description:'Synthetic test pose',phases:[{t:.4,hold:.3,right:{shape:'5',at:{anchor:'sternum',out:.15,up:0,forward:.2},fingers:'up',palm:'forward'},left:'rest'}]}]})]]);
+ globalThis.document={getElementById:get,createElement:element,querySelectorAll:()=>get('avatar-words').children,addEventListener(){}};globalThis.localStorage={getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v),removeItem:k=>data.delete(k)};
+ globalThis.requestAnimationFrame=fn=>{callbacks.set(++serial,fn);return serial;};globalThis.cancelAnimationFrame=id=>callbacks.delete(id);globalThis.speechSynthesis={getVoices:()=>[{voiceURI:'test-en',lang:'en-US',name:'English'}],speak:u=>utterances.push(u),cancel(){},addEventListener(){}};globalThis.SpeechSynthesisUtterance=class{constructor(text){this.text=text;}};
+ const frame=now=>{const [id,fn]=callbacks.entries().next().value;callbacks.delete(id);fn(now);};
+ try{
+  get('coach-language').value='en';get('coach-voice').value='test-en';get('coach-rate').value='.8';get('coach-volume').value='1';get('coach-auto').checked=true;get('lesson-display-mode').value='avatar';get('avatar-render-style').value='human';get('avatar-speed').value='1';get('lesson-text').value='घर';
+  const ui=createAvatarUI({getLanguage:()=>language,getText:()=>get('lesson-text').value,toast:m=>messages.push(m),createStage:async()=>({render(){},canvas:element()})});
+  ui.build();await Promise.resolve();assert.equal(get('avatar-stage').hidden,false);assert.equal(get('avatar-words').children[0].textContent,'घर');frame(100);assert.equal(utterances.length,1);frame(500);assert.equal(Number(get('avatar-seek').value),0);utterances[0].onend();await Promise.resolve();frame(600);frame(700);assert.ok(Number(get('avatar-seek').value)>0);
+  language='ILS';ui.invalidate();assert.equal(get('avatar-stage').hidden,true);assert.equal(get('lesson-reference-grid').hidden,false);assert.equal(callbacks.size,0);ui.clearPractice();assert.equal(data.has('signvoice-motion-packs-v1'),false);assert.deepEqual(messages,[]);
+ }finally{for(const [k,v] of Object.entries(originals)){if(v===undefined)delete globalThis[k];else globalThis[k]=v;}}
+});

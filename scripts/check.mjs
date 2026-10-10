@@ -7,7 +7,7 @@ import {fileURLToPath} from 'node:url';
 import {validateReferenceCatalog} from '../dist/lesson-engine.js';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const html=await readFile(path.join(root,'dist/index.html'),'utf8');
-const app=(await Promise.all(['app.js','learning-ui.js','world-ui.js','offline.js','library-directory.js','avatar-ui.js'].map(file=>readFile(path.join(root,'dist',file),'utf8')))).join('\n');
+const app=(await Promise.all(['app.js','learning-ui.js','world-ui.js','offline.js','library-directory.js','avatar-ui.js','practice-speech.js','motion-library-ui.js'].map(file=>readFile(path.join(root,'dist',file),'utf8')))).join('\n');
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 if(new Set(ids).size!==ids.length)throw Error('Duplicate HTML IDs');
 for(const [,id] of app.matchAll(/\$\('([^']+)'\)/g))if(!ids.includes(id))throw Error(`Missing element: ${id}`);

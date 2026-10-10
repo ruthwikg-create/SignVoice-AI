@@ -1,3 +1,4 @@
+import {buildMotionClip} from './motion-packs.js';
 import {compileUtterance,utteranceWords} from './vendor/sign-avatar/sign-speech.js';
 import {SIGNS,buildSignClip,signGloss} from './vendor/sign-avatar/sign-dictionary.js';
 import {SignTimeline,posePhase,neutralPose,restingPose} from './vendor/sign-avatar/sign-clip.js';
@@ -37,16 +38,17 @@ function lookup(word,position){
  if(position.last)timeline.settle(0.32);
  return timeline.build({name:'asl-'+key.toLowerCase()});
 }
-export function compileAvatar(text,language='ASL'){
+export function compileAvatar(text,language='ASL',{motions=[]}={}){
  if(language!=='ASL')throw Error('Animated motions are currently available only for American Sign Language (ASL). Use reference lessons for this language.');
  if(typeof text!=='string'||!text.trim())throw Error('Type a sentence first.');
  if(text.length>400||utteranceWords(text).length>40)throw Error('Use up to 40 words and 400 characters per animation.');
  // Never silently discard an unsupported script or emoji into an ASCII animation.
  if(/[^\x20-\x7e\s]/u.test(text))throw Error('The experimental ASL character supports English letters and digits. Use reference practice for other scripts.');
- const result=compileUtterance(text,{signs:lookup,maxSeconds:180});
+ const custom=new Map(motions.filter(m=>m.language==='ASL'&&!m.key.includes(' ')).map(m=>[m.key,m]));
+ const result=compileUtterance(text,{signs:(word,position)=>custom.has(word)?buildMotionClip(custom.get(word)):lookup(word,position),maxSeconds:180});
  if(result.truncated||result.clip.duration>180)throw Error('This animation exceeds 3 minutes. Split the text into shorter sentences.');
  for(const track of result.clip.tracks){const stride=track.type==='quaternion'?4:1;if(track.values.length!==track.times.length*stride||track.values.some(v=>!Number.isFinite(v)))throw Error('The motion clip could not be compiled.');}
- return {...result,segments:result.segments.map(segment=>({...segment,gloss:segment.signed?avatarDefinition(segment.word).gloss:null})),language:'ASL',mode:'experimental-lexical-animation',translation:false};
+ return {...result,segments:result.segments.map(segment=>({...segment,gloss:segment.signed?(custom.get(segment.word)?.description||avatarDefinition(segment.word).gloss):null,source:custom.get(segment.word)?.source||avatarDefinition(segment.word).source,speech:custom.get(segment.word)?.speech,reviewer:custom.get(segment.word)?.reviewer,custom:custom.has(segment.word)})),language:'ASL',mode:'experimental-lexical-animation',translation:false};
 }
 export function sampleTrack(track,time){
  const times=track.times,stride=track.type==='quaternion'?4:1;

@@ -1,4 +1,4 @@
-# Human signing studio — v1.6
+# Human signing studio — v1.7
 
 The default view is now a textured human model with depth, lighting, articulated hands and mapped facial channels. A dark blue shirt and selectable background contrast keep hands visible. Synchronized close-ups of the signer's right and left hand use the **same weighted mesh surface and skeleton** as the main character. The hand views do not synthesize a separate approximation.
 
@@ -14,9 +14,9 @@ For this example the sequence is **I → WANT → fingerspell TO → GO → HOME
 
 The bundled motion dictionary contains 32 canonical word entries, plus GO and HOME. WANT is overridden with an open-hand-to-curled-hand motion. I aliases ME, HI aliases HELLO, and THANKS aliases THANK. There are **37 available input labels**. Other labels are fingerspelled; synonyms such as NEED/WANT, MY/ME and LIKE/GOOD are deliberately not treated as equivalent signs. ASL A–Z and digits 0–9 are available, including moving J/Z and repeated-letter transitions.
 
-Only ASL character motion is supplied. Choosing ISL, BSL or any other language clears the animation and presents that language's existing source practice. The international resource library does not imply international avatar coverage. Personal webcam recordings and source videos do not automatically train this character.
+Only ASL motion is bundled. Other profiles can animate imported or visually authored sourced motions using Language motion studio; without personal motions, they present their own source practice. Missing personal motions refuse partial playback. The international resource library does not imply international avatar coverage. Personal webcam recordings and source videos do not automatically train this character.
 
-Input is limited to English ASCII characters, 40 words, 400 characters and three minutes of resulting motion. Unsupported scripts, emoji and overlong clips receive an error rather than a silently shortened animation. The character's controls and old sequence reset whenever input or language changes. Source video playback stops when the ASL character takes over. Background tabs and leaving the practice view pause the character.
+Bundled ASL input is limited to English ASCII characters. Personal sourced motions support native-script labels and exact full phrases. Both paths allow up to 40 words, 400 characters and three minutes of resulting motion. Unsupported scripts, emoji and overlong clips receive an error rather than a silently shortened animation. The character's controls and old sequence reset whenever input or language changes. Source video playback stops when the ASL character takes over. Background tabs and leaving the practice view pause the character.
 
 ## Implementation and provenance
 
@@ -31,3 +31,5 @@ The Apache-2.0 sign-language engine is vendored from `nirholas/three.ws`, commit
 `npm test` checks the requested example, all bundled motion labels, fingerspelling, finite normalized tracks, facial-channel joins, sampled contact/direction geometry, unsupported-language gating, limits, label escaping, controls' lifecycle and offline module coverage. It also parses the shipped human geometry/skeleton on the CPU, checks all motion labels' retargeted wrist positions and rotations, verifies that hand close-ups share the main weighted surface, checks rotated camera framing, word repeat/pause behavior and bounded phrasebook storage. `npm run check` checks syntax, HTML element references and packaged assets. Offline renders inspect the human asset's posed geometry and texture placement.
 
 These checks verify software behavior and geometry, **not linguistic accuracy**. The character and motion dictionary have not been reviewed by Deaf signers. Browser interaction, physical webcam use and source-video playback still need hands-on verification. Before treating this as a sentence translator, obtain fluent Deaf signer review, a licensed/validated motion vocabulary, language-specific grammar and appropriate nonmanual markers, then evaluate comprehensibility with users. Character motion for each additional sign language requires separate validated data.
+
+See [Motion packs and voice guidance](MOTION_PACKS.md) for v1.7 authoring, import/export and narration behavior.

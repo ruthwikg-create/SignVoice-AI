@@ -1,4 +1,4 @@
-# SignVoice AI — Human Signing Studio v1.6
+# SignVoice AI — Human Signing Studio v1.7
 
 ## Human signing studio
 
@@ -8,7 +8,15 @@ Save up to 20 practice phrases on this device and mark sequences reviewed. Count
 
 The human model comes from SignON / UPF GTI under its MIT license. Its optimized download is about 2.3 MB, with vendored Three.js rendering modules. It loads only when the signing studio is opened, requires WebGL 2 and a modern browser, and can be cached after first use. No paid avatar API or runtime npm installation is required.
 
-**Experimental:** 37 ASL word labels including aliases, plus letters and digits. This is authored motion playback, not generative AI or a complete sentence translator. The example animates I, WANT, GO and HOME while explicitly fingerspelling TO. It retains English word order, does not produce complete ASL grammar, and needs Deaf signer validation. Other languages use their own reference lessons; ASL motions are never substituted. See [Human signing studio](docs/ANIMATED_CHARACTER.md).
+**Experimental:** 37 ASL word labels including aliases, plus letters and digits. This is authored motion playback, not generative AI or a complete sentence translator. The example animates I, WANT, GO and HOME while explicitly fingerspelling TO. It retains English word order, does not produce complete ASL grammar, and needs Deaf signer validation. Other languages use their own reference lessons or personal sourced motion packs; ASL motions are never substituted. See [Human signing studio](docs/ANIMATED_CHARACTER.md).
+
+## Multilingual motion and voice coaching
+
+**Listen & learn** offers voice selection, speed, volume, visible narration, and optional speech before each animated word (the animation clock waits for narration). Twelve authored coaching languages are included: English, Hindi, Telugu, French, Spanish, Portuguese, German, Italian, Chinese, Japanese, Korean and Swahili. Available voices depend on the browser/device. Other installed voice languages can read your own translated narration. A voice does not translate text. English can read bundled movement descriptions; personal motions can carry language-specific narration. This retains the original SignVoice app; Telugu is one optional speech locale, not a replacement project.
+
+**Language motion studio** authors sourced word or full-phrase animations in any of the 87 separate sign-language profiles, including Indian ISL and International Sign (`ILS`). Set each hand's shape, location, offsets, finger/palm direction, face setting and head movement; inspect a pose, add steps, preview, then save. Import/export packs, retain source links and optional review attribution, and store up to 200 motions on this device. Native-script labels are supported. An exact full-phrase motion takes priority over separate word labels. Missing motions in languages other than ASL stop animation and keep reference practice available. Author-supplied reviewer names are displayed as attribution, not independent certification.
+
+**Bundled coverage has not expanded to all languages.** Only the experimental ASL dictionary ships with motions. ISL, International Sign and the other profiles require their own reviewed motion data or manual authoring; the editor does not infer gestures from typed words or capture a reference video. Full-phrase playback plays an authored sequence; it does not generate a grammatical translation. See [Motion packs and narration](docs/MOTION_PACKS.md).
 
 ## World Languages learning edition
 
