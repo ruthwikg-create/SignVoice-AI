@@ -23,7 +23,7 @@ test('character controls reset on input/language changes and stop on reference/v
   get('avatar-reference-mode').onclick();assert.equal(get('avatar-panel').hidden,true);assert.equal(get('lesson-reference-grid').hidden,false);assert.equal(referenceHandoffs,1);
   get('lesson-display-mode').value='avatar';get('lesson-display-mode').onchange();assert.equal(callbacks.size,1);
   ui.onView('library');assert.equal(callbacks.size,0);
-  language='ISL';ui.invalidate();assert.equal(get('avatar-stage').hidden,true);assert.equal(get('lesson-reference-grid').hidden,false);assert.equal(get('avatar-words').children.length,0);assert.equal(get('avatar-play').disabled,true);assert.match(get('avatar-language-note').textContent,/No ASL/);
+  language='ISL';ui.invalidate();assert.equal(get('avatar-stage').hidden,false);assert.equal(get('lesson-reference-grid').hidden,false);assert.equal(get('avatar-words').children.length,0);assert.equal(get('avatar-play').disabled,true);assert.match(get('avatar-language-note').textContent,/No ASL/);
   ui.build();assert.equal(callbacks.size,0);
   language='ASL';get('lesson-text').value='home';ui.build();assert.equal(callbacks.size,1);
   get('lesson-text').input();assert.equal(callbacks.size,0);assert.equal(get('avatar-play').disabled,true);assert.equal(get('avatar-seek').max,'0');
@@ -44,6 +44,21 @@ test('personal ISL motion reaches the human viewer and voice guidance gates its 
   get('coach-language').value='en';get('coach-voice').value='test-en';get('coach-rate').value='.8';get('coach-volume').value='1';get('coach-auto').checked=true;get('lesson-display-mode').value='avatar';get('avatar-render-style').value='human';get('avatar-speed').value='1';get('lesson-text').value='घर';
   const ui=createAvatarUI({getLanguage:()=>language,getText:()=>get('lesson-text').value,toast:m=>messages.push(m),createStage:async()=>({render(){},canvas:element()})});
   ui.build();await Promise.resolve();assert.equal(get('avatar-stage').hidden,false);assert.equal(get('avatar-words').children[0].textContent,'घर');frame(100);assert.equal(utterances.length,1);frame(500);assert.equal(Number(get('avatar-seek').value),0);utterances[0].onend();await Promise.resolve();frame(600);frame(700);assert.ok(Number(get('avatar-seek').value)>0);
-  language='ILS';ui.invalidate();assert.equal(get('avatar-stage').hidden,true);assert.equal(get('lesson-reference-grid').hidden,false);assert.equal(callbacks.size,0);ui.clearPractice();assert.equal(data.has('signvoice-motion-packs-v1'),false);assert.deepEqual(messages,[]);
+  language='ILS';ui.invalidate();assert.equal(get('avatar-stage').hidden,false);assert.equal(get('lesson-reference-grid').hidden,false);assert.equal(callbacks.size,0);ui.clearPractice();assert.equal(data.has('signvoice-motion-packs-v1'),false);assert.deepEqual(messages,[]);
+ }finally{for(const [k,v] of Object.entries(originals)){if(v===undefined)delete globalThis[k];else globalThis[k]=v;}}
+});
+
+test('starting in a language without motions loads a visible resting human for every profile, including changes during loading',async()=>{
+ const {LANGUAGES}=await import('../dist/languages.js'),keys=['document','requestAnimationFrame','cancelAnimationFrame','localStorage'],originals=Object.fromEntries(keys.map(k=>[k,globalThis[k]])),elements=new Map(),callbacks=new Map(),rendered=[];let language='ISL',serial=0,loads=0,finish;
+ const element=()=>({value:'',innerHTML:'',children:[],dataset:{},classList:{toggle(){}},append(...items){this.children.push(...items);},replaceChildren(...items){this.children=[...items];},contains(item){return this.children.includes(item);},setAttribute(){},addEventListener(name,fn){this[name]=fn;}}),get=id=>{if(!elements.has(id))elements.set(id,element());return elements.get(id);};
+ globalThis.document={getElementById:get,createElement:element,querySelectorAll:()=>get('avatar-words').children,addEventListener(){}};globalThis.localStorage={getItem:()=>null};globalThis.requestAnimationFrame=fn=>{callbacks.set(++serial,fn);return serial;};globalThis.cancelAnimationFrame=id=>callbacks.delete(id);
+ const canvas=element(),loaded=new Promise(resolve=>{finish=resolve;});
+ try{
+  get('lesson-display-mode').value='avatar';get('avatar-render-style').value='human';get('avatar-speed').value='1';get('lesson-text').value='Hello How are you';
+  const ui=createAvatarUI({getLanguage:()=>language,getText:()=>get('lesson-text').value,toast:assert.fail,createStage:async()=>{loads++;await loaded;get('avatar-stage').replaceChildren(canvas);return {canvas,render(pose){rendered.push(pose);}};}});
+  ui.onView('learn');assert.equal(loads,1);assert.equal(get('avatar-stage').hidden,false);assert.match(get('avatar-stage').innerHTML,/svg/);ui.build();assert.match(get('avatar-coverage').textContent,/No animation/);
+  for(const profile of LANGUAGES){language=profile.id;ui.invalidate();assert.equal(get('avatar-stage').hidden,false,language);assert.equal(get('avatar-visual-options').hidden,false,language);assert.equal(get('avatar-controls').hidden,false,language);assert.equal(get('avatar-play').disabled,true,language);assert.equal(get('lesson-reference-grid').hidden,false,language);assert.equal(callbacks.size,0,language);assert.match(get('avatar-subtitle').textContent,/at rest/,language);}
+  language='ILS';ui.invalidate();finish();await Promise.resolve();await Promise.resolve();assert.equal(loads,1);assert.equal(get('avatar-stage').children[0],canvas);assert.equal(get('avatar-hand-labels').hidden,false);assert.ok(rendered.length);assert.match(get('avatar-subtitle').textContent,/International Sign/);assert.equal(get('avatar-play').disabled,true);
+  get('avatar-focus').value='left';get('avatar-focus').onchange();assert.ok(rendered.length>1);get('avatar-reference-mode').onclick();assert.equal(get('avatar-panel').hidden,true);assert.equal(get('lesson-reference-grid').hidden,false);
  }finally{for(const [k,v] of Object.entries(originals)){if(v===undefined)delete globalThis[k];else globalThis[k]=v;}}
 });

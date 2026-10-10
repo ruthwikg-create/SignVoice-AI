@@ -1,4 +1,4 @@
-# Human signing studio — v1.7
+# Human signing studio — v1.7.1
 
 The default view is now a textured human model with depth, lighting, articulated hands and mapped facial channels. A dark blue shirt and selectable background contrast keep hands visible. Synchronized close-ups of the signer's right and left hand use the **same weighted mesh surface and skeleton** as the main character. The hand views do not synthesize a separate approximation.
 
@@ -14,7 +14,7 @@ For this example the sequence is **I → WANT → fingerspell TO → GO → HOME
 
 The bundled motion dictionary contains 32 canonical word entries, plus GO and HOME. WANT is overridden with an open-hand-to-curled-hand motion. I aliases ME, HI aliases HELLO, and THANKS aliases THANK. There are **37 available input labels**. Other labels are fingerspelled; synonyms such as NEED/WANT, MY/ME and LIKE/GOOD are deliberately not treated as equivalent signs. ASL A–Z and digits 0–9 are available, including moving J/Z and repeated-letter transitions.
 
-Only ASL motion is bundled. Other profiles can animate imported or visually authored sourced motions using Language motion studio; without personal motions, they present their own source practice. Missing personal motions refuse partial playback. The international resource library does not imply international avatar coverage. Personal webcam recordings and source videos do not automatically train this character.
+Only ASL motion is bundled. Other profiles can animate imported or visually authored sourced motions using Language motion studio; without personal motions, the human stays visible at rest alongside their own source practice. The absence of motions disables playback, not character loading, camera controls or hand close-ups. Missing personal motions refuse partial playback. The international resource library does not imply international avatar coverage. Personal webcam recordings and source videos do not automatically train this character.
 
 Bundled ASL input is limited to English ASCII characters. Personal sourced motions support native-script labels and exact full phrases. Both paths allow up to 40 words, 400 characters and three minutes of resulting motion. Unsupported scripts, emoji and overlong clips receive an error rather than a silently shortened animation. The character's controls and old sequence reset whenever input or language changes. Source video playback stops when the ASL character takes over. Background tabs and leaving the practice view pause the character.
 
